@@ -1,982 +1,312 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700&display=swap" rel="stylesheet">
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>ECOWATT — Ingeniería ambiental aplicada</title>
-<meta content="ECOWATT: ingeniería ambiental sólida y eficiente aplicada al tratamiento de aguas, efluentes y aire. Presencia en Argentina, Uruguay, Paraguay y Bolivia." name="description"/>
-<!-- Montserrat per brand sheet --><style>
-    :root{--solutions-gray:#999999; /* TODO: reemplazar por gris exacto de la captura */ 
-      --blue:#001489;
-      --green:#009A44;
-      --black:#000000;
-      --dark:#0f172a;
-      --text:#1b2533;
-      --muted:#667085;
-      --white:#ffffff;
-      --radius:14px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Bricolage Grotesque',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--text);background:var(--white);line-height:1.6}
-    a{color:var(--blue);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .container{max-width:1180px;margin:0 auto;padding:0 20px}
+<meta name="description" content="ECOWATT: ingeniería ambiental sólida y eficiente aplicada al tratamiento de aguas, efluentes y aire. Presencia en Argentina, Uruguay, Paraguay y Bolivia.">
 
-    /* Header */
-    header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e5e7eb}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
-    .brand{display:flex;align-items:center;gap:14px}
-    .brand img{height:35px;width:auto;display:block}
-    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
-    nav a{font-weight:600;color:var(--dark)}
-    .btn{display:inline-block;padding:10px 16px;border-radius:999px;font-weight:700;border:2px solid var(--blue);background:var(--blue);color:white}
-    .btn.alt{background:transparent;color:var(--blue)}
-    .btn.green{border-color:var(--green);background:var(--green)}
-
-    /* Bands */
-    section.band-blue{background:var(--blue);color:white;padding:56px 0}
-    section.band-green{background:var(--green);color:white;padding:56px 0}
-    section.band-white{background:#fff;color:var(--text);padding:56px 0}
-    section.band-gray{background:#f6f7fb;color:var(--text);padding:56px 0}
-    section.band-gray-dark{background:var(--solutions-gray);color:var(--text);padding:56px 0}
-    h3.section-title{font-size:28px;margin:0 0 10px 0}
-    p.lead{opacity:.9;margin:0 0 22px 0}
-
-    /* Hero */
-    .hero video,.hero img{width:100%;height:66vh;min-height:460px;object-fit:cover;display:block}
-    .hero{position:relative}
-    .hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;padding:0}
-    .hero-inner{
-  width:min(92%,560px);
-  max-width:560px;
-  aspect-ratio:4/3;
-  background:rgba(245,247,250,.82);
-  border:1px solid rgba(0,0,0,.06);
-  border-radius:22px;
-  padding:22px;
-  box-shadow:0 10px 26px rgba(16,24,40,.16);
-  backdrop-filter: blur(2px);
-  color:#0b2b4a;
-  display:flex;flex-direction:column;justify-content:space-between;
-}
-    .hero h2{font-size:40px;margin:0 0 10px 0;line-height:1.15;letter-spacing:0.2px}
-    .hero p{font-size:18px;opacity:.95;margin:0 0 20px 0}
-    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-
-    /* Cards and grid */
-    .grid{display:grid;gap:18px}
-    @media(min-width:720px){.grid.cols-2{grid-template-columns:1fr 1fr}}
-    @media(min-width:960px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}
-                             .grid.cols-4{grid-template-columns:repeat(4,1fr)}}
-    .card{background:white;border:1px solid #e5e7eb;border-radius:var(--radius);padding:18px;color:var(--text)}
-    .card h4{margin:0 0 8px 0}
-    .chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);color:white;font-weight:700;font-size:12px}
-    .chip.dark{background:rgba(0,0,0,.05);border-color:#e5e7eb;color:var(--blue)}
-    .chip img{height:36px;width:auto;display:inline-block}
-    .icon-white{filter:brightness(0) invert(1)}
-    .icon-black{filter:none}
-
-    /* Footer */
-    footer{background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.45)), var(--green);color:white;padding:24px 0;margin-top:40px}
-    footer a{color:#eaf6ff}
-  
-    @media(max-width:720px){
-  .hero video,.hero img{height:78vh;min-height:520px}
-  .hero-inner{width:min(94%,520px);aspect-ratio:4/3;padding:18px}
-  .hero h2{font-size:26px}
-  .hero p{font-size:15px}
-  /* DISABLED_GLOBAL_BTN_FULLWIDTH .btn{width:100%;text-align:center} */
-  header .nav{gap:10px}
-}
-      .hero p{font-size:16px}
-      /* DISABLED_GLOBAL_BTN_FULLWIDTH .btn{width:100%;text-align:center} */
-      header .nav{gap:10px}
-    }
-
-  
-    /* Accentos de color en tarjetas sobre bandas blancas */
-    .band-white .card h4{ color: var(--blue); }
-    .band-white .card p strong{ color: var(--green); }
-    .band-white .chip.dark{ color: var(--blue); border-color: var(--blue); background: rgba(0,20,137,.06); }
-  
-.partner-logos {display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));justify-items:center;align-items:center;gap:60px;width:100%}
-.partner-logos img {max-height:80px;max-width:200px;width:auto;object-fit:contain;display:block;margin:auto;background:transparent}
-    
-
-@media (min-width: 720px){
-  .partner-logos {display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));justify-items:center;align-items:center;gap:60px;width:100%}
-}
-
-.partner-logos img.aqana-logo {max-height:80px;width:auto;display:block;margin:auto}
-  8%{opacity:1}
-  25%{opacity:1}
-  33%{opacity:0}
-  100%{opacity:0}
-}
-
-/* Ajuste relación 4:3 y mayor tamaño en la galería */
-.slideshow{position:relative;width:100%;padding-top:75%; /* 4:3 ratio */ height:auto;border-radius:10px;overflow:hidden}
-.slideshow img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
-
-.more-inline{display:none}
-.band-gray-dark .card{display:flex;flex-direction:column}
-.band-gray-dark .card .btn-wrap{margin-top:auto;display:flex;justify-content:flex-end}
-.band-gray-dark .grid{align-items:stretch}
-
-.band-gray-dark .grid>.card{height:100%}
-.band-gray-dark .card{display:flex;flex-direction:column;height:100%}
-
-
-
-/* Corrección específica para tarjetas de Soluciones y tecnologías */
-#soluciones .card h4 { color: var(--blue); } /* títulos principales en azul */
-#soluciones .card h5, #soluciones .card .subtitle { color: var(--green); } /* subtítulos en verde */
-
-
-.slideshow { position:relative; }
-.slideshow .prev, .slideshow .next {
-  position:absolute; top:0; bottom:0; width:50%;
-  cursor:pointer; z-index:5;
-}
-.slideshow .prev { left:0; }
-.slideshow .next { right:0; }
-
-
-/* Colores títulos y subtítulos en tarjetas de Soluciones y Tecnologías */
-#soluciones .card h3 { color:#005baa; } /* azul institucional */
-#soluciones .card h4, #soluciones .card .subtitle { color:#3a913f; } /* verde institucional */
-
-
-/* Colores de tarjetas en Soluciones y tecnologías */
-#soluciones .card h4 { color: var(--green); }
-#soluciones .card .chip + h4 { color: var(--blue); }
-
-
-    /* --- Hero card adaptation (lighter card for better contrast) --- */
-    .hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.25));}
-    .hero-inner{
-      max-width:920px;
-      background:rgba(245,247,250,.88); /* light gray card */
-      border:1px solid rgba(0,0,0,.06);
-      border-radius:24px;
-      padding:28px 28px 24px 28px;
-      box-shadow:0 10px 30px rgba(16,24,40,.18);
-      backdrop-filter: blur(2px);
-      color:#0b2b4a;
-    }
-    .hero h2{font-weight:800; letter-spacing:.2px;}
-    .hero p{color:#3d4a5a}
-    .hero-ctas .btn{font-size:16px; padding:12px 18px; border-radius:14px; border-width:0; box-shadow:0 1px 2px rgba(16,24,40,.08), 0 2px 6px rgba(16,24,40,.08)}
-    .hero-ctas .btn.alt{border-width:2px; background:#0B3A82; color:#fff; border-color:#0B3A82}
-    .hero-ctas .btn.green{background:#0A8F42; border-color:#0A8F42; color:#fff}
-    .hero-ctas .btn.with-arrow::after{content:'\2197'; margin-left:6px; font-weight:700}
-
-
-/* --- Galería: visor + filmstrip con scroll --- */
-.gallery-main-wrap{width:70%;margin:0 auto;border-radius:12px;overflow:hidden;background:#fff}
-.gallery-main{width:100%;height:auto;display:block;object-fit:cover}
-.filmstrip{
-  width:70%;
-  margin:14px auto 0;
-  display:flex; gap:10px;
-  overflow-x:auto; overflow-y:hidden; padding:6px;
-  scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
-  background:#fff; border-radius:10px;
-}
-.filmstrip .thumb{
-  flex:0 0 auto; height:76px; width:auto;
-  aspect-ratio:4/3; object-fit:cover; border-radius:8px;
-  cursor:pointer; scroll-snap-align:start; background:#eee;
-  border:2px solid transparent;
-}
-.filmstrip .thumb.active{ border-color:#0B3A82; }
-
-
-
-/* === Leer más (Soluciones y Tecnologías) — v2 reglas estrictas === */
-.sol-grid .card{display:flex;flex-direction:column}
-/* Preview uniforme: misma altura en todas las tarjetas */
-.sol-grid .card .excerpt{height:5.2em;overflow:hidden;transition:height .3s ease}
-.sol-grid .card.expanded .excerpt{height:auto}
-/* Footer fijo al final de cada tarjeta y botones alineados a la derecha */
-.sol-grid .card .card-footer{margin-top:auto;display:flex;justify-content:flex-end;align-items:center}
-/* Botón */
-.sol-grid .leer-mas{display:inline-block;border:1px solid #0b2b4a;background:#0b2b4a;color:#fff;border-radius:10px;padding:10px 14px;font-weight:600}
-.sol-grid .leer-mas[aria-expanded="true"]{background:#0a7d2c;border-color:#0a7d2c}
-
-
-
-/* --- Hero: forzar alineación a la izquierda --- */
-.hero .hero-overlay > .container{margin:0; width:100%; display:flex; justify-content:flex-start; align-items:center; padding:0 20px;}
-.hero .hero-inner{margin-left:0; margin-right:auto;}
-
-
-/* --- Soluciones & Tecnologías: preview homogéneo y botones alineados --- */
-.sol-grid .card{display:flex; flex-direction:column}
-.sol-grid .card .excerpt{overflow:hidden; transition:height .28s ease; padding:0}
-.sol-grid .card .excerpt p{margin:0}
-.sol-grid .card .card-footer{margin-top:auto; display:flex; justify-content:flex-end; align-items:center}
-
-
-/* --- v5: Cards baseline alignment --- */
-.sol-grid .card{display:flex;flex-direction:column}
-.sol-grid .card .card-body{display:block}
-.sol-grid .card .card-footer{margin-top:auto;display:flex;justify-content:flex-end;align-items:center}
-
-
-/* --- v6: Baseline estricta para botones y previews --- */
-.sol-grid .card{display:flex;flex-direction:column}
-.sol-grid .card .card-footer{margin-top:auto;display:flex;justify-content:flex-end;align-items:center}
-/* Evitar variaciones por márgenes en preview */
-.sol-grid .card .excerpt p{margin:0}
-
-
-/* --- v8: Header fixes + hero anti-overlap --- */
-header{display:flex;justify-content:space-between;align-items:center;padding:10px 24px}
-header .brand img{height:32px;width:auto;display:block}
-header .nav{display:flex;align-items:center;gap:24px}
-/* El botón del header no debe heredar el padding grande de botones de secciones */
-header .btn, header .btn-consultar{
-  padding:8px 22px;
-  font-size:16px;
-  line-height:1.1;
-  height:auto;
-}
-/* Evitar que la tarjeta del hero pise la banda siguiente */
-.hero{position:relative;padding-bottom:140px}
-@media (max-width: 900px){
-  .hero{padding-bottom:170px}
-}
-/* Asegurar que la tarjeta permanece a la izquierda */
-.hero .hero-overlay>.container{margin:0;display:flex;justify-content:flex-start;align-items:center;padding:0 20px}
-.hero .hero-inner{margin-left:0;margin-right:auto}
-
-
-/* --- v10: Bricolage Grotesque --- */
-body, p, li { font-family: 'Bricolage Grotesque', sans-serif; font-weight:400; }
-h1, h2, h3, h4, .section-title { font-family: 'Bricolage Grotesque', sans-serif; font-weight:700; }
-
-
-/* --- v11: Bricolage Grotesque with Medium --- */
-h2, h3, .subtitle { font-family: 'Bricolage Grotesque', sans-serif; font-weight:500; }
-
-
-/* --- v12: Hero card width adjustment --- */
-.hero .hero-inner{
-  max-width:700px; /* ~25% larger than previous 560px */
-  aspect-ratio:4/3;
-}
-@media (max-width: 900px){
-  .hero .hero-inner{
-    max-width:90%; /* keep it responsive */
+<style>
+  /* === Variables y base === */
+  :root{
+    --solutions-gray:#999999;
+    --blue:#001489;
+    --green:#009A44;
+    --dark:#0f172a;
+    --text:#1b2533;
+    --white:#ffffff;
+    --radius:14px;
+    --gutter:20px;           /* margen izquierdo/derecho unificado */
   }
-}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Bricolage Grotesque',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:var(--text);background:var(--white);line-height:1.6}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .container{max-width:1180px;margin:0 auto;padding:0 var(--gutter)} /* alinea logo, títulos y tarjeta del hero */
 
+  /* === Header === */
+  header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e5e7eb}
+  .nav{display:flex;align-items:center;gap:16px;padding:10px 0}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand img{height:35px;width:auto;display:block}
+  nav{flex:1}
+  nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;justify-content:space-between;flex-wrap:wrap}
+  nav a{font-weight:600;color:var(--dark)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-weight:700;border:2px solid var(--blue);background:var(--blue);color:#fff;white-space:nowrap}
+  .btn.alt{background:transparent;color:var(--blue)}
+  .btn.green{border-color:var(--green);background:var(--green)}
+  /* Empuja el último botón del header (\"Consultar\") a la derecha */
+  .nav > a.btn{margin-left:auto}
 
-/* --- v13: Hero card wider & less tall --- */
-.hero .hero-inner{
-  width:70%;      /* increase width */
-  max-width:720px;
-  height:auto;
-  aspect-ratio:auto; /* cancel fixed aspect ratio to reduce height */
-}
-.hero .hero-inner .card-content{
-  padding:20px 28px; /* adjust inner padding if needed */
-}
-@media (max-width: 900px){
-  .hero .hero-inner{
-    width:90%;
-    max-width:90%;
+  /* === Bandas === */
+  section.band-blue{background:var(--blue);color:#fff;padding:56px 0}
+  section.band-green{background:var(--green);color:#fff;padding:56px 0}
+  section.band-white{background:#fff;color:var(--text);padding:56px 0}
+  section.band-gray{background:#f6f7fb;color:var(--text);padding:56px 0}
+  h3.section-title{font-size:28px;margin:0 0 10px}
+  p.lead{opacity:.9;margin:0 0 22px}
+
+  /* === HERO (video proporcional, sin solaparse) === */
+  .hero{position:relative;min-height:62vh}
+  .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
+  .hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start}
+  .hero .hero-overlay>.container{width:100%;display:flex;justify-content:flex-start;align-items:center}
+  .hero-inner{max-width:720px;background:rgba(245,247,250,.88);border:1px solid rgba(0,0,0,.06);border-radius:24px;padding:24px;box-shadow:0 10px 30px rgba(16,24,40,.18);backdrop-filter:blur(2px);color:#0b2b4a;margin-left:0;margin-right:auto}
+  .hero h2{font-size:clamp(26px,4.2vw,40px);margin:0 0 10px;line-height:1.15;letter-spacing:.2px;font-weight:700}
+  .hero p{font-size:16px;margin:0 0 18px;color:#3d4a5a}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+  /* Garantizar que ninguna banda solape a otra */
+  section{position:relative;z-index:0}
+
+  /* === Grillas y tarjetas === */
+  .grid{display:grid;gap:18px}
+  @media(min-width:720px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+  @media(min-width:960px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-4{grid-template-columns:repeat(4,1fr)}}
+  .card{background:#fff;border:1px solid #e5e7eb;border-radius:var(--radius);padding:18px;color:var(--text)}
+  .card h4{margin:0 0 8px}
+  .chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);color:#fff;font-weight:700;font-size:12px}
+  .chip.dark{background:rgba(0,0,0,.05);border-color:#e5e7eb;color:var(--blue)}
+  .chip img{height:36px;width:auto;display:inline-block}
+
+  /* === Footer === */
+  footer{background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.45)), var(--green);color:#fff;padding:24px 0;margin-top:40px}
+  footer a{color:#eaf6ff}
+
+  /* === Responsivo header/menú === */
+  @media(max-width:900px){
+    nav ul{gap:12px}
   }
-}
-
-
-/* === v14 — Botones compactos y CTAs lado a lado (solo formato) === */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 14px;
-  width:auto;
-  max-width:100%;
-  white-space:nowrap;
-}
-/* Hero: asegurar lado a lado y tamaño a contenido */
-.hero-ctas{ gap:12px; flex-wrap:wrap; display:flex; }
-.hero-ctas .btn{ width:auto; }
-
-/* Evitar que móviles fuercen ancho completo */
-@media (max-width:720px){
-  .btn{ width:auto; }
-}
-
-
-/* === v15 — Ajustes de banda Hero (altura=video) y card más arriba === */
-.hero{ position:relative; height:62vh; min-height:420px; }
-.hero video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
-.hero-card{ position:absolute; top:14%; left:5%; right:auto; z-index:2; }
-.hero-card h1{ line-height:1.1; font-size:clamp(2.0rem, 4.4vw, 3.1rem); } /* -1 punto aprox */
-@media (max-width:1024px){
-  .hero{ height:60vh; min-height:400px; }
-  .hero-card{ top:12%; left:6%; right:6%; }
-}
-@media (max-width:720px){
-  .hero{ height:58vh; min-height:360px; }
-  .hero-card{ top:10%; left:6%; right:6%; }
-  .hero-card h1{ font-size:clamp(1.8rem, 6vw, 2.6rem); }
-}
-
-
-/* === v16 — Ajuste solicitado: centrar vertical Hero, quitar 'robusta', y compactar botones === */
-.hero{ display:flex; align-items:center; }
-.hero-card{
-  position:relative; top:auto; left:auto;
-  margin-left:5%; /* mantener alineación a la izquierda */
-  padding:16px 20px; /* un poco menos de alto */
-}
-.hero-card h1{
-  line-height:1.12;
-  margin:0 0 10px 0;
-  font-size:clamp(1.9rem, 4.1vw, 3.0rem); /* un toque más chico */
-}
-/* Botones: menos aire horizontal en toda la web */
-.btn{ padding:8px 10px; }
-
-
-/* === v17 — Mobile-safe Hero (sin solapes, video centrado, banda a pantalla completa) === */
-@media (max-width:720px){
-  .hero{
-    height:100vh;           /* ocupa la pantalla completa en móviles */
-    min-height:560px;       /* asegura espacio suficiente para la tarjeta */
-    padding:0;              /* sin padding externo que empuje otras bandas */
-    display:flex;
-    align-items:center;     /* centra verticalmente la tarjeta */
-    overflow:hidden;
+  @media(max-width:720px){
+    .brand img{height:32px}
+    .nav{flex-wrap:wrap}
+    nav{order:3;width:100%}
+    nav ul{justify-content:space-evenly}
+    .nav > a.btn{order:2;margin-left:auto}
+    .hero{min-height:56vh}
+    .hero-inner{max-width:640px;padding:18px;border-radius:18px}
   }
-  .hero video{
-    object-fit:cover;       /* no deforma el video */
-    object-position:50% 50%;/* muestra la parte central, resto fuera de pantalla */
-    width:100%;
-    height:100%;
+  @media(max-width:520px){
+    .hero{min-height:52vh}
+    .hero h2{font-size:clamp(22px,5.6vw,28px)}
+    .hero p{font-size:15px}
+    .btn{padding:7px 12px}
   }
-  .hero-card{
-    max-width:88%;
-    margin-left:6%;
-    margin-right:6%;
-    padding:16px 18px;      /* compacta un poco para evitar que crezca de más */
+  @media(max-width:380px){
+    .hero h2{font-size:clamp(20px,6vw,24px)}
+    .hero-inner{padding:14px}
+    .hero-ctas{gap:8px}
   }
-  .hero-card h1{
-    font-size:clamp(1.4rem, 6.5vw, 1.8rem);
-    line-height:1.15;
-  }
-  .hero-card p{ font-size:0.95rem; line-height:1.35; }
-  .hero-ctas{ gap:10px; }
-}
-/* Evitar superposiciones: garantizar que secciones siguientes no se monten */
-.hero + section, .hero + div, .hero + *{ margin-top:0; }
 
+  /* Acentos de color en tarjetas sobre bandas blancas */
+  .band-white .card h4{color:var(--blue)}
+  .band-white .card p strong{color:var(--green)}
+  .band-white .chip.dark{color:var(--blue);border-color:var(--blue);background:rgba(0,20,137,.06)}
 
-/* === v18 — Más espacio entre Hero y la banda siguiente (mobile) === */
-@media (max-width:720px){
-  .hero{ margin-bottom: clamp(20px, 4vh, 40px); }
-  .hero-card{ margin-bottom: 8px; }
-}
+  /* Galería compacta */
+  .gallery-main-wrap{width:70%;margin:0 auto;border-radius:12px;overflow:hidden;background:#fff}
+  .gallery-main{width:100%;height:auto;display:block;object-fit:cover}
+  .filmstrip{width:70%;margin:14px auto 0;display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;padding:6px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;background:#fff;border-radius:10px}
+  .filmstrip .thumb{flex:0 0 auto;height:76px;width:auto;aspect-ratio:4/3;object-fit:cover;border-radius:8px;cursor:pointer;scroll-snap-align:start;background:#eee;border:2px solid transparent}
+  .filmstrip .thumb.active{border-color:#0B3A82}
 
-
-/* === v19 — Mobile: Hero sin solapes (auto-height), video centrado, separación segura === */
-@media (max-width:720px){
-  .hero{
-    display:block;           /* evitar centrar si el contenido es alto */
-    height:auto;             /* crecer según contenido */
-    min-height:100svh;       /* al menos pantalla completa, respetando UI móvil */
-    overflow:visible;        /* no recorta la tarjeta */
-    position:relative;
-    padding-block:clamp(16px, 4vh, 28px);
-    margin-bottom:clamp(24px, 5vh, 44px); /* espacio claro con la banda siguiente */
-  }
-  .hero video{
-    position:absolute; inset:0;
-    width:100%; height:100%;
-    object-fit:cover; object-position:50% 50%;
-    z-index:0;
-  }
-  .hero-card{
-    position:relative; z-index:1;
-    max-width:92%;
-    margin-inline:6%;
-    margin-block:0;
-    padding:16px 18px;
-  }
-}
-
-
-/* === v20 — Anti-solape reforzado en móviles === */
-@media (max-width:720px){
-  .hero{
-    padding-top: clamp(12px, 3vh, 24px);
-    padding-bottom: clamp(56px, 8vh, 80px); /* extra colchón bajo la tarjeta */
-    margin-bottom: clamp(20px, 3vh, 36px);
-  }
-  /* Empuje inicial de la siguiente banda sin tocar su contenido */
-  .hero + section, .hero + div, .hero + *{
-    padding-top: clamp(16px, 4vh, 28px) !important;
-    margin-top: 0 !important;
-  }
-}
-
-
-/* === v21 — Mobile anti-solape final: padding + pseudo-spacer === */
-@media (max-width:720px){
-  .hero{
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-    height:auto;
-    min-height:100svh;
-    padding-top:6vh;
-    padding-bottom:14vh;   /* más colchón bajo la tarjeta */
-    margin-bottom:6vh;     /* separación clara con la banda siguiente */
-    overflow:visible;
-  }
-  .hero::after{
-    content:"";
-    position:static;       /* parte del flujo para sumar espacio real */
-    display:block;
-    height:10vh;           /* pseudo-espaciador adicional */
-    width:100%;
-  }
-  .hero video{
-    position:absolute; inset:0;
-    width:100%; height:100%;
-    object-fit:cover; object-position:50% 50%;
-    z-index:0;
-  }
-  .hero-card{ position:relative; z-index:1; margin-bottom:0; }
-  .hero + section, .hero + div, .hero + *{
-    padding-top:4vh !important; margin-top:0 !important;
-  }
-}
-
-
-/* === v22 — Anti-solape global (todas las resoluciones) === */
-.hero{
-  position:relative;
-  overflow:visible;
-  padding-bottom:clamp(48px, 10vh, 120px); /* colchón bajo la tarjeta */
-  margin-bottom:clamp(24px, 6vh, 96px);    /* separación con la banda siguiente */
-}
-.hero::after{
-  content:"";
-  display:block;
-  height:clamp(24px, 6vh, 64px);           /* espaciador adicional */
-  width:100%;
-}
-.hero video{
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  object-fit:cover; object-position:50% 50%;
-  z-index:0;
-}
-.hero-card{ position:relative; z-index:1; }
-
-/* Asegurar que la siguiente banda no use margen negativo y tenga colchón arriba */
-.hero + section, .hero + div, .hero + *{
-  margin-top:0 !important;
-  padding-top:clamp(24px, 5vh, 64px) !important;
-}
-
-/* Ajustes específicos mobile (refuerzo) */
-@media (max-width:720px){
-  .hero{ height:auto; min-height:100svh; padding-top:clamp(16px, 4vh, 32px); }
-  .hero::after{ height:clamp(32px, 8vh, 96px); }
-}
-
-
-/* === v23 — Video centrado y escalado proporcional con aspecto 16:9 === */
-:root{ --hero-aspect-w:16; --hero-aspect-h:9; }
-
-/* Centro del video = centro de la banda */
-.hero video{
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-
-/* En pantallas medianas y chicas, el Hero crece proporcionalmente (aspect-ratio) */
-@media (max-width:1024px){
-  .hero{
-    height:auto;
-    aspect-ratio: var(--hero-aspect-w) / var(--hero-aspect-h);
-    min-height: clamp(60vh, calc(100vw * var(--hero-aspect-h) / var(--hero-aspect-w)), 100svh);
-    display:flex;
-    align-items:center;
-  }
-}
-
-/* Refuerzo en móviles: asegura centro y evita solapes */
-@media (max-width:720px){
-  .hero{
-    aspect-ratio: var(--hero-aspect-w) / var(--hero-aspect-h);
-    min-height: max(100svh, calc(100vw * var(--hero-aspect-h) / var(--hero-aspect-w)));
-    padding-block: clamp(16px, 4vh, 32px);
-  }
-  .hero::after{ height: clamp(24px, 6vh, 64px); }
-}
-
+  /* Soluciones & tecnologías — lectura/altura */
+  .sol-grid .card{display:flex;flex-direction:column}
+  .sol-grid .card .excerpt{height:5.2em;overflow:hidden;transition:height .28s ease}
+  .sol-grid .card.expanded .excerpt{height:auto}
+  .sol-grid .card .card-footer{margin-top:auto;display:flex;justify-content:flex-end;align-items:center}
+  .sol-grid .leer-mas{display:inline-block;border:1px solid #0b2b4a;background:#0b2b4a;color:#fff;border-radius:10px;padding:10px 14px;font-weight:600}
+  .sol-grid .leer-mas[aria-expanded="true"]{background:#0a7d2c;border-color:#0a7d2c}
 </style>
 </head>
-<body><!-- BAND: QUIENES (BLUE) -->
-<!-- HERO (full-width video) -->
-<script>
-    document.addEventListener('click', function(e){
-      if(e.target && e.target.classList.contains('leer-mas')){
-        const card = e.target.closest('.card');
-        const more = card && card.querySelector('.more-content');
-        if(more){
-          const isHidden = getComputedStyle(more).display === 'none';
-          more.style.display = isHidden ? 'block' : 'none';
-          e.target.textContent = isHidden ? 'Ver menos' : 'Leer más…';
-    const inlines = card && card.querySelectorAll('.more-inline');
-    if(inlines && inlines.length){
-      inlines.forEach(function(span){ span.style.display = isHidden ? 'inline' : 'none'; });
-    }
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <a href="#inicio"><img src="assets/logos/ecowatt.png" alt="ECOWATT (placeholder)"></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#soluciones">Soluciones</a></li>
+        <li><a href="#quienes">Quiénes somos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <a href="#contacto" class="btn alt">Consultar</a>
+  </div>
+</header>
 
-        }
-      }
-    });
-    
-  
-// --- Leer más: per-card toggle ---
-document.addEventListener('click', function(e){
-  if(e.target && e.target.classList.contains('leer-mas')){
-    var btn = e.target;
-    var card = btn.closest('.card');
-    if(!card) return;
-    var expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!expanded));
-    card.classList.toggle('expanded', !expanded);
-    btn.textContent = expanded ? 'Leer más…' : 'Leer menos';
-  }
-});
+<section id="inicio" class="hero">
+  <video autoplay loop muted playsinline poster="assets/img/hero/hero-ecowatt.jpg">
+    <source src="assets/videos/hero.mp4" type="video/mp4"/>
+  </video>
+  <div class="hero-overlay">
+    <div class="container">
+      <div class="hero-inner">
+        <h2>Ingeniería ambiental sólida y eficiente aplicada al tratamiento de aguas, efluentes y aire</h2>
+        <p>Somos ECOWATT, una empresa de ingeniería interdisciplinaria que diseña y provee sistemas de tratamiento de aguas, efluentes y aire con foco en eficiencia, confiabilidad y reducción de costos operativos. Con presencia en Argentina, Uruguay, Paraguay y Bolivia, acompañamos a municipios, industrias y desarrolladores en proyectos de alta calidad, respaldados por alianzas estratégicas internacionales.</p>
+        <div class="hero-ctas">
+          <a class="btn green" href="#soluciones">Ver soluciones</a>
+          <a class="btn alt" href="#quienes">Conocenos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section class="band-blue" id="quienes">
+  <div class="container">
+    <h3 class="section-title">Quiénes somos</h3>
+    <div class="grid cols-2">
+      <div class="card">
+        <p>Somos ECOWATT, un equipo interdisciplinario con formaciones en distintas áreas y una fuerte orientación hacia soluciones en ingeniería hidráulica, química, mecánica, civil, ambiental, eléctrica e instrumentación.</p>
+        <p><strong>Nos distinguimos por:</strong></p>
+        <ul>
+          <li>Diseños a medida para cada necesidad, desde urbanizaciones hasta procesos industriales complejos.</li>
+          <li>Eficiencia y confiabilidad en cada proyecto, minimizando mantenimiento y optimizando recursos.</li>
+          <li>Respaldo internacional, con tecnología de empresas líderes en Europa y América.</li>
+          <li>Orientación al cliente, acompañando desde la ingeniería conceptual hasta la implementación final.</li>
+        </ul>
+        <p style="letter-spacing:.35em;text-transform:uppercase;opacity:.9"><small></small></p>
+      </div>
+      <div class="card">
+        <h4>¿Por qué ECOWATT?</h4>
+        <div class="excerpt"><p>Ingeniería aplicada, tecnologías probadas y soporte local. Acompañamos de punta a punta: ingeniería conceptual, detalle, provisión, montaje y puesta en marcha.</p></div>
+        <p><a class="btn" href="#contacto">Iniciar consulta técnica</a></p>
+      </div>
+    </div>
+  </div>
+</section>
 
-// === Homogeneizar cantidad de renglones con base en 'Aire y gases' ===
-(function(){
-  function syncPreviewHeight(){
-    try{
-      var grid = document.querySelector('.sol-grid');
-      if(!grid) return;
-      // localizar tarjeta 'Aire y gases' por su h4
-      var airCard = Array.from(grid.querySelectorAll('.card')).find(function(c){
-        var h4 = c.querySelector('h4');
-        return h4 && /aire\s*y\s*gases/i.test(h4.textContent);
-      });
-      if(!airCard) return;
-      var airExcerpt = airCard.querySelector('.excerpt');
-      if(!airExcerpt) return;
-      // medir altura actual SOLO cuando la tarjeta está colapsada
-      var wasExpanded = airCard.classList.contains('expanded');
-      airCard.classList.remove('expanded');
-      // Forzar un reflow para medir
-      var targetHeight = airExcerpt.getBoundingClientRect().height;
-      // Aplicar esa altura a todas las demás tarjetas (colapsadas)
-      grid.querySelectorAll('.card').forEach(function(card){
-        var ex = card.querySelector('.excerpt');
-        if(!ex) return;
-        if(card !== airCard && !card.classList.contains('expanded')){
-          ex.style.height = targetHeight + 'px';
-          ex.style.overflow = 'hidden';
-        }
-      });
-      // restaurar estado de 'Aire y gases' si estaba expandida (en general no lo estará en carga)
-      if(wasExpanded) airCard.classList.add('expanded');
-    }catch(e){ /* no-op */ }
-  }
-  window.addEventListener('load', syncPreviewHeight);
-  window.addEventListener('resize', function(){
-    clearTimeout(window.__syncPrevTO);
-    window.__syncPrevTO = setTimeout(syncPreviewHeight, 120);
-  });
-  // también resincronizar cuando se cierre una tarjeta
-  document.addEventListener('click', function(e){
-    if(e.target && e.target.classList.contains('leer-mas')){
-      setTimeout(syncPreviewHeight, 160);
-    }
-  });
-})();
+<section class="band-white" id="proceso">
+  <div class="container">
+    <h3 class="section-title">Proceso de trabajo</h3>
+    <p class="lead">Metodología ingenieril adaptable. Siempre buscamos <strong>reducir contaminantes en origen</strong> y <strong>optimizar procesos</strong> para minimizar inversiones y OPEX.</p>
+    <div class="grid cols-4">
+      <div class="card"><span class="step-badge">1</span><h4>Diagnóstico de situación</h4><div class="excerpt"><p>Relevamiento técnico de caudales, cargas, procesos y normativa. Oportunidades de mejora en origen.</p></div></div>
+      <div class="card"><span class="step-badge">2</span><h4>Ingeniería de procesos</h4><div class="excerpt"><p>Balances de masa/energía, simulaciones, dimensionamiento y selección tecnológica óptima.</p></div></div>
+      <div class="card"><span class="step-badge">3</span><h4>Implementación</h4><div class="excerpt"><p>Provisión de equipos, integración a plantas existentes o construcción de nuevas unidades y puesta en marcha.</p></div></div>
+      <div class="card"><span class="step-badge">4</span><h4>Seguimiento y optimización</h4><div class="excerpt"><p>Capacitación, monitoreo y soporte para mantener eficiencia y adaptarse a nuevas exigencias.</p></div></div>
+    </div>
+  </div>
+</section>
 
-
-// === Sincronizar preview (Aguas/Efluentes) con 'Aire y gases' y alinear botones ===
-(function(){
-  function computeTarget(){
-    var grid = document.querySelector('.sol-grid');
-    if(!grid) return 0;
-    var airCard = Array.from(grid.querySelectorAll('.card')).find(function(c){
-      var h4 = c.querySelector('h4');
-      return h4 && /aire\s*y\s*gases/i.test(h4.textContent);
-    });
-    if(!airCard) return 0;
-    var airEx = airCard.querySelector('.excerpt');
-    if(!airEx) return 0;
-    var was = airCard.classList.contains('expanded');
-    airCard.classList.remove('expanded');
-    // quitar márgenes para medir de forma consistente
-    var ps = airEx.querySelectorAll('p');
-    ps.forEach(function(p){ p.style.margin='0'; });
-    var h = airEx.getBoundingClientRect().height;
-    if(was) airCard.classList.add('expanded');
-    return h;
-  }
-  function sync(){
-    var grid = document.querySelector('.sol-grid');
-    if(!grid) return;
-    var h = computeTarget();
-    if(!h) return;
-    grid.querySelectorAll('.card').forEach(function(card){
-      var ex = card.querySelector('.excerpt');
-      if(!ex) return;
-      if(!card.classList.contains('expanded')){
-        ex.style.height = h + 'px';
-        ex.style.overflow = 'hidden';
-        // asegurar que el footer quede a la misma altura y a la derecha
-        var foot = card.querySelector('.card-footer');
-        if(foot){ foot.style.marginTop = 'auto'; foot.style.justifyContent = 'flex-end'; }
-      }
-    });
-  }
-  // sincronizar en load, resize y tras clicks de 'Leer más…'
-  window.addEventListener('load', function(){
-    sync();
-    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(sync); }
-  });
-  window.addEventListener('resize', function(){ clearTimeout(window.__syncTO); window.__syncTO = setTimeout(sync, 120); });
-  document.addEventListener('click', function(e){
-    if(e.target && e.target.classList.contains('leer-mas')){
-      setTimeout(sync, 160);
-    }
-  });
-})();
-
-// === v5: Alinear botones y preview con referencia 'Aire y gases' ===
-(function(){
-  function ensureBodies(){
-    document.querySelectorAll('.sol-grid .card').forEach(function(card){
-      if(card.querySelector('.card-body')) return;
-      var h4 = card.querySelector('h4');
-      var ex = card.querySelector('.excerpt');
-      if(h4 && ex){
-        var body = document.createElement('div');
-        body.className = 'card-body';
-        // insertar antes del h4 y mover h4+excerpt dentro
-        card.insertBefore(body, h4);
-        body.appendChild(h4);
-        body.appendChild(ex);
-      }
-    });
-  }
-  function measureAir(){
-    var grid = document.querySelector('.sol-grid');
-    if(!grid) return {body:0, excerpt:0};
-    var airCard = Array.from(grid.querySelectorAll('.card')).find(function(c){
-      var h = c.querySelector('h4'); return h && /aire\s*y\s*gases/i.test(h.textContent);
-    });
-    if(!airCard) return {body:0, excerpt:0};
-    var was = airCard.classList.contains('expanded');
-    airCard.classList.remove('expanded');
-    var body = airCard.querySelector('.card-body');
-    var ex = airCard.querySelector('.excerpt');
-    if(!body || !ex) return {body:0, excerpt:0};
-    // normalizar márgenes para medir consistente
-    ex.querySelectorAll('p').forEach(function(p){ p.style.margin='0'; });
-    var bodyH = body.getBoundingClientRect().height;
-    var exH = ex.getBoundingClientRect().height;
-    if(was) airCard.classList.add('expanded');
-    return {body:bodyH, excerpt:exH};
-  }
-  function applyHeights(){
-    ensureBodies();
-    var dims = measureAir();
-    if(!dims.body || !dims.excerpt) return;
-    document.querySelectorAll('.sol-grid .card').forEach(function(card){
-      var body = card.querySelector('.card-body');
-      var ex = card.querySelector('.excerpt');
-      if(!body || !ex) return;
-      if(!card.classList.contains('expanded')){
-        body.style.minHeight = dims.body + 'px';   // igualar alto total de (título+preview)
-        ex.style.height = dims.excerpt + 'px';     // igualar líneas del preview
-        ex.style.overflow = 'hidden';
-      }else{
-        body.style.minHeight = '';
-        ex.style.height = 'auto';
-      }
-      var foot = card.querySelector('.card-footer');
-      if(foot){ foot.style.marginTop='auto'; foot.style.justifyContent='flex-end'; }
-    });
-  }
-  function scheduleApply(){
-    clearTimeout(window.__applyHeightsTO);
-    window.__applyHeightsTO = setTimeout(applyHeights, 120);
-  }
-  window.addEventListener('load', function(){
-    applyHeights();
-    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(applyHeights); }
-  });
-  window.addEventListener('resize', scheduleApply);
-  document.addEventListener('click', function(e){
-    if(e.target && e.target.classList.contains('leer-mas')){
-      setTimeout(applyHeights, 160);
-    }
-  });
-})();
-
-// === v6: Baseline estricta usando altura exacta de 'Aire y gases' ===
-(function(){
-  function ensureBodies(){
-    document.querySelectorAll('.sol-grid .card').forEach(function(card){
-      if(card.querySelector('.card-body')) return;
-      var h4 = card.querySelector('h4');
-      var ex = card.querySelector('.excerpt');
-      if(h4 && ex){
-        var body = document.createElement('div');
-        body.className = 'card-body';
-        card.insertBefore(body, h4);
-        body.appendChild(h4);
-        body.appendChild(ex);
-      }
-    });
-  }
-  function getAirHeights(){
-    var grid = document.querySelector('.sol-grid');
-    if(!grid) return null;
-    var airCard = Array.from(grid.querySelectorAll('.card')).find(function(c){
-      var h = c.querySelector('h4'); return h && /aire\s*y\s*gases/i.test(h.textContent);
-    });
-    if(!airCard) return null;
-    var expanded = airCard.classList.contains('expanded');
-    airCard.classList.remove('expanded');
-    var body = airCard.querySelector('.card-body');
-    var ex = airCard.querySelector('.excerpt');
-    if(!body || !ex) return null;
-    // medir alturas reales
-    var bodyH = body.getBoundingClientRect().height;
-    var exH = ex.getBoundingClientRect().height;
-    if(expanded) airCard.classList.add('expanded');
-    return {bodyH, exH};
-  }
-  function apply(){
-    ensureBodies();
-    var dims = getAirHeights();
-    if(!dims) return;
-    document.querySelectorAll('.sol-grid .card').forEach(function(card){
-      var body = card.querySelector('.card-body');
-      var ex = card.querySelector('.excerpt');
-      if(!body || !ex) return;
-      if(!card.classList.contains('expanded')){
-        // Altura EXACTA para alinear botones en la misma línea
-        body.style.height = dims.bodyH + 'px';
-        ex.style.height = dims.exH + 'px';
-        ex.style.overflow = 'hidden';
-      }else{
-        body.style.height = '';
-        ex.style.height = 'auto';
-      }
-      var foot = card.querySelector('.card-footer');
-      if(foot){ foot.style.marginTop='auto'; foot.style.justifyContent='flex-end'; }
-    });
-  }
-  function schedule(){ clearTimeout(window.__v6TO); window.__v6TO = setTimeout(apply, 120); }
-  window.addEventListener('load', function(){
-    apply();
-    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(apply); }
-  });
-  window.addEventListener('resize', schedule);
-  document.addEventListener('click', function(e){
-    if(e.target && e.target.classList.contains('leer-mas')){
-      setTimeout(apply, 160);
-    }
-  });
-})();
-</script><header>
-<div class="container nav">
-<div class="brand">
-<a href="#inicio">
-<img alt="ECOWATT (placeholder)" src="assets/logos/ecowatt.png"/></a>
-</div>
-<nav>
-<ul>
-<li><a href="#soluciones">Soluciones</a></li>
-<li><a href="#quienes">Quiénes somos</a></li>
-<li><a href="#contacto">Contacto</a></li>
-</ul>
-</nav>
-<a class="btn alt" href="#contacto">Consultar</a>
-</div>
-</header><section class="hero" id="inicio">
-<video autoplay loop muted playsinline poster="assets/img/hero/hero-ecowatt.jpg">
-  <source src="assets/videos/hero.mp4" type="video/mp4"/>
-</video>
-<div class="hero-overlay"><div class="container">
-<div class="container hero-inner">
-<h2>Ingeniería ambiental sólida y eficiente aplicada al tratamiento de aguas, efluentes y aire</h2>
-<p>Somos ECOWATT, una empresa de ingeniería interdisciplinaria que diseña y provee sistemas de tratamiento de aguas, efluentes y aire con foco en eficiencia, confiabilidad y reducción de costos operativos. Con presencia en Argentina, Uruguay, Paraguay y Bolivia, acompañamos a municipios, industrias y desarrolladores en proyectos de alta calidad, respaldados por alianzas estratégicas internacionales.</p>
-<div class="hero-ctas">
-<a class="btn green" href="#soluciones">Ver soluciones</a>
-<a class="btn alt" href="#quienes">Conocenos</a>
-</div>
-</div>
-</div>
-</section><section class="band-blue" id="quienes">
-<div class="container">
-<h3 class="section-title">Quiénes somos</h3>
-<div class="grid cols-2">
-<div class="card">
-<p>Somos ECOWATT, un equipo interdisciplinario con formaciones en distintas áreas y una fuerte orientación hacia soluciones en ingeniería hidráulica, química, mecánica, civil, ambiental, eléctrica e instrumentación.</p>
-<p><strong>Nos distinguimos por:</strong></p>
-<ul>
-<li>Diseños a medida para cada necesidad, desde urbanizaciones hasta procesos industriales complejos.</li>
-<li>Eficiencia y confiabilidad en cada proyecto, minimizando mantenimiento y optimizando recursos.</li>
-<li>Respaldo internacional, con tecnología de empresas líderes en Europa y América.</li>
-<li>Orientación al cliente, acompañando desde la ingeniería conceptual hasta la implementación final.</li>
-</ul>
-<p style="letter-spacing:.35em;text-transform:uppercase;opacity:.9"><small></small></p>
-</div>
-<div class="card">
-<h4>¿Por qué ECOWATT?</h4>
-<div class="excerpt"><p>Ingeniería aplicada, tecnologías probadas y soporte local. Acompañamos de punta a punta: ingeniería conceptual, detalle, provisión, montaje y puesta en marcha.</p></div>
-<p><a class="btn" href="#contacto">Iniciar consulta técnica</a></p>
-</div>
-</div>
-</div>
-</section><section class="band-white" id="proceso">
-<div class="container">
-<h3 class="section-title">Proceso de trabajo</h3>
-<p class="lead">Metodología ingenieril adaptable. Siempre buscamos <strong>reducir contaminantes en origen</strong> y <strong>optimizar procesos</strong> para minimizar inversiones y OPEX.</p>
-<style>
-      /* Estilos acotados a esta banda */
-      #proceso .card { position: relative; }
-      #proceso .step-badge{
-        display:inline-flex; align-items:center; justify-content:center;
-        width:36px; height:36px; border-radius:999px;
-        background:var(--green); color:#fff; font-weight:800;
-        box-shadow:0 2px 6px rgba(0,0,0,.12); margin-bottom:10px;
-      }
-      #proceso .card h4{ margin:0 0 8px 0; }
-      #proceso .card p{ margin:0; }
-    
-
-
-/* Corrección específica para tarjetas de Soluciones y tecnologías */
-#soluciones .card h4 { color: var(--blue); } /* títulos principales en azul */
-#soluciones .card h5, #soluciones .card .subtitle { color: var(--green); } /* subtítulos en verde */
-
-
-.slideshow { position:relative; }
-.slideshow .prev, .slideshow .next {
-  position:absolute; top:0; bottom:0; width:50%;
-  cursor:pointer; z-index:5;
-}
-.slideshow .prev { left:0; }
-.slideshow .next { right:0; }
-
-
-/* Colores títulos y subtítulos en tarjetas de Soluciones y Tecnologías */
-#soluciones .card h3 { color:#005baa; } /* azul institucional */
-#soluciones .card h4, #soluciones .card .subtitle { color:#3a913f; } /* verde institucional */
-
-
-/* Colores de tarjetas en Soluciones y tecnologías */
-#soluciones .card h4 { color: var(--green); }
-#soluciones .card .chip + h4 { color: var(--blue); }
-
-</style>
-<div class="grid cols-4">
-<div class="card">
-<span class="step-badge">1</span>
-<h4>Diagnóstico de situación</h4>
-<div class="excerpt"><p>Relevamiento técnico de caudales, cargas, procesos y normativa. Oportunidades de mejora en origen.</p></div>
-</div>
-<div class="card">
-<span class="step-badge">2</span>
-<h4>Ingeniería de procesos</h4>
-<div class="excerpt"><p>Balances de masa/energía, simulaciones, dimensionamiento y selección tecnológica óptima.</p></div>
-</div>
-<div class="card">
-<span class="step-badge">3</span>
-<h4>Implementación</h4>
-<div class="excerpt"><p>Provisión de equipos, integración a plantas existentes o construcción de nuevas unidades y puesta en marcha.</p></div>
-</div>
-<div class="card">
-<span class="step-badge">4</span>
-<h4>Seguimiento y optimización</h4>
-<div class="excerpt"><p>Capacitación, monitoreo y soporte para mantener eficiencia y adaptarse a nuevas exigencias.</p></div>
-</div>
-</div>
-</div>
-</section><section class="band-green" id="soluciones">
-<div class="container">
-<h3 class="section-title">Soluciones y tecnologías</h3>
-<p class="lead">Seleccioná un área para explorar tecnologías y casos de implementación.</p>
-<div class="grid cols-4"><div class="card"><span class="chip"><img alt=""  src="assets/icons/gota-blue (2).svg"/> Aguas</span><h4>Aguas</h4><div class="excerpt"><p>Potabilización y acondicionamiento de agua para uso urbano e industrial. Implementamos sistemas de tratamiento convencional cribado, coagulación, floculación, sedimentación y filtración<span class="more-inline"> y procesos avanzados mediante membranas, intercambio iónico (incluida la electrodeionización) y otras tecnologías complementarias, según la calidad de fuente y los objetivos del cliente.</span></p></div><div class="more-content" style="display:none;margin-top:10px"><p>y procesos avanzados mediante membranas, intercambio iónico (incluida la electrodeionización) y otras tecnologías complementarias, según la calidad de fuente y los objetivos del cliente. Además, proveemos los equipos y unidades de proceso, con ingeniería, montaje y soporte local.</p><p>Diseñamos y ejecutamos sistemas de potabilización ajustados a calidad de fuente y norma objetivo.<br/>
-    Procesos aplicados (según caso): pretratamientos y cribado (finos/medios), coagulación–floculación, sedimentación de alta tasa con módulos lamelares de perfil chevron, DAF, filtración (lecho granular, disco, tambor, microtamiz) y membranas (MF/UF/RO), con desinfección final. Para calidades objetivo más exigentes incorporamos intercambio iónico/electrodeionización y procesos avanzados.</p><h4>Suministro de equipos y unidades</h4><div class="excerpt"><p>Integramos y proveemos: sistemas de cribado y manejo de residuos; floculadores y clarificadores (incl. módulos/paquetes lamelares de perfil chevron); rasquetas/puentes de lodos; unidades de filtración por disco y por tambor; filtros de arena (convencionales y de operación continua) y microfiltros; además de instrumentación y automatización asociada. Opcional paquetes modulares “plug &amp; play” cuando corresponde.</p></div><h4>Valor agregado</h4><ul>
+<section class="band-green" id="soluciones">
+  <div class="container">
+    <h3 class="section-title">Soluciones y tecnologías</h3>
+    <p class="lead">Seleccioná un área para explorar tecnologías y casos de implementación.</p>
+    <div class="grid cols-4">
+      <div class="card"><span class="chip"><img src="assets/icons/gota-blue (2).svg" alt=""> Aguas</span><h4>Aguas</h4><div class="excerpt"><p>Potabilización y acondicionamiento de agua para uso urbano e industrial. Implementamos sistemas de tratamiento convencional cribado, coagulación, floculación, sedimentación y filtración<span class="more-inline"> y procesos avanzados mediante membranas, intercambio iónico (incluida la electrodeionización) y otras tecnologías complementarias, según la calidad de fuente y los objetivos del cliente.</span></p></div><div class="more-content" style="display:none;margin-top:10px"><p>y procesos avanzados mediante membranas, intercambio iónico (incluida la electrodeionización) y otras tecnologías complementarias, según la calidad de fuente y los objetivos del cliente. Además, proveemos los equipos y unidades de proceso, con ingeniería, montaje y soporte local.</p><p>Diseñamos y ejecutamos sistemas de potabilización ajustados a calidad de fuente y norma objetivo.<br>    Procesos aplicados (según caso): pretratamientos y cribado (finos/medios), coagulación–floculación, sedimentación de alta tasa con módulos lamelares de perfil chevron, DAF, filtración (lecho granular, disco, tambor, microtamiz) y membranas (MF/UF/RO), con desinfección final. Para calidades objetivo más exigentes incorporamos intercambio iónico/electrodeionización y procesos avanzados.</p><h4>Suministro de equipos y unidades</h4><div class="excerpt"><p>Integramos y proveemos: sistemas de cribado y manejo de residuos; floculadores y clarificadores (incl. módulos/paquetes lamelares de perfil chevron); rasquetas/puentes de lodos; unidades de filtración por disco y por tambor; filtros de arena (convencionales y de operación continua) y microfiltros; además de instrumentación y automatización asociada. Opcional paquetes modulares “plug &amp; play” cuando corresponde.</p></div><h4>Valor agregado</h4><ul>
 <li>Innovación y eficiencia técnica: selección entre líneas convencionales y avanzadas para lograr la calidad objetivo con alta confiabilidad operativa.</li>
 <li>Flexibilidad: soluciones compactas y paquetes preensamblados ideales para ampliaciones o nuevas plantas.</li>
 <li>Soporte integral: ingeniería de proceso, suministro, montaje, puesta en marcha, capacitación y O&amp;M asistido.</li>
-</ul></div><div class="btn-wrap"><button class="btn alt leer-mas">Leer más…</button></div></div><div class="card"><span class="chip"><img alt=""  src="assets/icons/cloaca-blue (2).svg"/> Efluentes urbanos e industriales</span><h4>Efluentes urbanos e industriales</h4><div class="excerpt"><p>Soluciones integrales para efluentes municipales/domésticos e industriales, combinando trenes de pretratamiento, procesos biológicos (aeróbicos y anaeróbicos), polimento con filtración biológica, tratamientos terciarios y opciones de reúso del agua tratada.</p></div><div class="more-content" style="display:none;margin-top:10px"><p>Cuando corresponde, integramos aprovechamiento energético mediante biogás y esquemas de minimización de descarga (incl. ZLD), asegurando cumplimiento normativo y eficiencia operativa.</p><h4>Efluentes urbanos</h4><div class="excerpt"><p>Soluciones para municipios, desarrollos urbanísticos y corrientes domésticas en industrias.</p></div><p>Procesos aplicados: barros activados, MBR, MBBR, lechos percoladores, IFAS, UASB, lagunas anaeróbicas, terciarios y desinfección.</p><p>Reúso y polimento biológico: incorporación de filtración biológica de pulido (p. ej., BAC/biocarbón, percolación de polimento) y etapas de membranas cuando se requiere calidad para riego, servicios, recirculación u otros usos permitidos.</p><p>Integración de servicios y equipos: pretratamiento robusto (rejas/tamices, desarenado/desengrasado), aireación y mezcla de bajo mantenimiento, monitoreo y soporte técnico.</p><p>Enfoque: cumplimiento normativo, eficiencia operativa y reducción de CAPEX/OPEX.</p><h4><img alt="Ícono fábrica – Efluentes industriales"  src="assets/icons/fabrica-blue (2).svg" style="height:36px;width:auto;display:inline-block"/> Efluentes industriales y generación de biogás</h4><div class="excerpt"><p>Tratamiento físico–químico y biológico para adecuación de vuelcos en múltiples rubros (alimentos y bebidas, agroindustria, químico/farmacéutico, petróleo y gas, entre otros).</p></div><h4>Tecnologías clave</h4><ul>
+</ul></div><div class="btn-wrap"><button class="btn alt leer-mas">Leer más…</button></div></div>
+
+      <div class="card"><span class="chip"><img src="assets/icons/cloaca-blue (2).svg" alt=""> Efluentes urbanos e industriales</span><h4>Efluentes urbanos e industriales</h4><div class="excerpt"><p>Soluciones integrales para efluentes municipales/domésticos e industriales, combinando trenes de pretratamiento, procesos biológicos (aeróbicos y anaeróbicos), polimento con filtración biológica, tratamientos terciarios y opciones de reúso del agua tratada.</p></div><div class="more-content" style="display:none;margin-top:10px"><p>Cuando corresponde, integramos aprovechamiento energético mediante biogás y esquemas de minimización de descarga (incl. ZLD), asegurando cumplimiento normativo y eficiencia operativa.</p><h4>Efluentes urbanos</h4><div class="excerpt"><p>Soluciones para municipios, desarrollos urbanísticos y corrientes domésticas en industrias.</p></div><p>Procesos aplicados: barros activados, MBR, MBBR, lechos percoladores, IFAS, UASB, lagunas anaeróbicas, terciarios y desinfección.</p><p>Reúso y polimento biológico: incorporación de filtración biológica de pulido (p. ej., BAC/biocarbón, percolación de polimento) y etapas de membranas cuando se requiere calidad para riego, servicios, recirculación u otros usos permitidos.</p><p>Integración de servicios y equipos: pretratamiento robusto (rejas/tamises, desarenado/desengrasado), aireación y mezcla de bajo mantenimiento, monitoreo y soporte técnico.</p><p>Enfoque: cumplimiento normativo, eficiencia operativa y reducción de CAPEX/OPEX.</p><h4><img src="assets/icons/fabrica-blue (2).svg" alt="Ícono fábrica – Efluentes industriales" style="height:36px;width:auto;display:inline-block"> Efluentes industriales y generación de biogás</h4><div class="excerpt"><p>Tratamiento físico–químico y biológico para adecuación de vuelcos en múltiples rubros (alimentos y bebidas, agroindustria, químico/farmacéutico, petróleo y gas, entre otros).</p></div><h4>Tecnologías clave</h4><ul>
 <li>Anaeróbicas de alta tasa para conversión de carga orgánica en biogás.</li>
 <li>Etapas aeróbicas (MBBR, barros activados, IFAS) para remoción de DBO/DQO y nitrificación–desnitrificación.</li>
 <li>Polimento y reúso: filtración biológica de pulido, carbón activado/biocarbón, terciarios avanzados y membranas (UF/RO) orientados a reúso o ZLD, según objetivo del cliente.</li>
-</ul><p>Servicios profesionales: ingeniería de proceso, pilotos y pruebas de tratabilidad, laboratorio, auditorías de performance, operación y mantenimiento asistido.</p></div><div class="btn-wrap"><button class="btn alt leer-mas">Leer más…</button></div></div><div class="card"><span class="chip"><img alt=""  src="assets/icons/aire-blue (2).svg"/> Aire y gases</span><h4>Aire y gases</h4><div class="excerpt"><p>Depuración de aire y control de emisiones/olores para aplicaciones urbanas e industriales, incluyendo soluciones biológicas y fisicoquímicas, además de limpieza de biogás (abatimiento de H₂S y siloxanos).</p></div><div class="more-content" style="display:none;margin-top:10px"><ul>
+</ul><p>Servicios profesionales: ingeniería de proceso, pilotos y pruebas de tratabilidad, laboratorio, auditorías de performance, operación y mantenimiento asistido.</p></div><div class="btn-wrap"><button class="btn alt leer-mas">Leer más…</button></div></div>
+
+      <div class="card"><span class="chip"><img src="assets/icons/aire-blue (2).svg" alt=""> Aire y gases</span><h4>Aire y gases</h4><div class="excerpt"><p>Depuración de aire y control de emisiones/olores para aplicaciones urbanas e industriales, incluyendo soluciones biológicas y fisicoquímicas, además de limpieza de biogás (abatimiento de H₂S y siloxanos).</p></div><div class="more-content" style="display:none;margin-top:10px"><ul>
 <li>Tecnologías: biofiltración y biotrickling, lavadores (scrubbers), adsorción con carbón activado, captación/abatimiento de polvos, ventilación industrial e insonorización.</li>
 <li>Servicios: ingeniería, consultoría, diseño, fabricación e instalación llave en mano; integración de pretratamiento de biogás para maximizar la eficiencia de valorización energética.</li>
-</ul></div><div class="btn-wrap"><button class="btn alt leer-mas">Leer más…</button></div></div><div class="card"><span class="chip"><img alt=""  src="assets/icons/agitador-blue (2).svg"/> Equipamiento</span><h4>Equipamiento</h4><div class="excerpt"><p>Provisión de equipos, repuestos e insumos para pretratamiento, clarificación/decantación, procesos biológicos (aireación y mezcla) y control de emisiones, con ingeniería y soporte local.</p></div><div class="more-content" style="display:none;margin-top:10px"><ul>
-<li>Pretratamiento y separación sólido–líquido: rejas/tamices, tambores, desarenadores/desengrasadores, transporte y compactación.</li>
+</ul></div><div class="btn-wrap"><button class="btn alt leer-mas">Leer más…</button></div></div>
+
+      <div class="card"><span class="chip"><img src="assets/icons/agitador-blue (2).svg" alt=""> Equipamiento</span><h4>Equipamiento</h4><div class="excerpt"><p>Provisión de equipos, repuestos e insumos para pretratamiento, clarificación/decantación, procesos biológicos (aireación y mezcla) y control de emisiones, con ingeniería y soporte local.</p></div><div class="more-content" style="display:none;margin-top:10px"><ul>
+<li>Pretratamiento y separación sólido–líquido: rejas/tamises, tambores, desarenadores/desengrasadores, transporte y compactación.</li>
 <li>Clarificación/Decantación: módulos lamelares (seditubos) de perfil chevron y componentes para decantadores/clarificadores.</li>
 <li>Procesos biológicos (reactores y lagunas): aireación y mezcla de alta eficiencia y bajo mantenimiento (selección según matriz y carga).</li>
 <li>Aire y gases: biofiltros, biotrickling, scrubbers, adsorción con carbón activado, ventilación e insonorización.</li>
 <li>Servicios asociados: ingeniería, suministro, instalación, pilotos, laboratorio, auditorías y asistencia tecnológica; operación y mantenimiento según necesidad. Nota: los detalles de filtración biológica de agua y reúso se desarrollan en la sección Efluentes.</li>
-</ul></div><div class="btn-wrap"><button class="btn alt leer-mas">Leer más…</button></div></div></div>
-</div>
-</section><section class="band-white">
-<div class="container">
-<h3 class="section-title">Partners internacionales</h3>
-<p class="lead">Alianzas estratégicas con empresas líderes.</p>
-<div class="partner-logos"><img alt="Fuchs" src="assets/logos/partners/fuchs.png"/><img alt="2G Ingeniería y Servicios" src="assets/logos/partners/2g.png"/><img alt="Aqana" src="assets/logos/partners/aqana.png"/><img alt="DAGA" src="assets/logos/partners/daga.png"/><img alt="AirClean" src="assets/logos/partners/airclean.png"/></div></div>
-</section><section class="band-blue" id="galeria">
-<div class="container">
-
-<h3 class="section-title">Galería</h3>
-<div class="card" style="background:#0a1f8f14;border:none;padding:20px">
-  <!-- Imagen principal (más chica) -->
-  <div class="gallery-main-wrap">
-    <img id="gallery-main" src="assets/gallery/group1/img1.jpg" alt="Galería" class="gallery-main"/>
+</ul></div><div class="btn-wrap"><button class="btn alt leer-mas">Leer más…</button></div></div>
+    </div>
   </div>
+</section>
 
-  <!-- Filmstrip con scroll horizontal -->
-  <div class="filmstrip" tabindex="0" aria-label="Miniaturas de galería (scroll horizontal)">
-      <img src="assets/gallery/group1/img1.jpg" data-full="assets/gallery/group1/img1.jpg" alt="g1-1" class="thumb"/>
-      <img src="assets/gallery/group1/img2.jpg" data-full="assets/gallery/group1/img2.jpg" alt="g1-2" class="thumb"/>
-      <img src="assets/gallery/group1/img3.jpg" data-full="assets/gallery/group1/img3.jpg" alt="g1-3" class="thumb"/>
-      <img src="assets/gallery/group1/img4.jpg" data-full="assets/gallery/group1/img4.jpg" alt="g1-4" class="thumb"/>
-      <img src="assets/gallery/group1/img5.jpg" data-full="assets/gallery/group1/img5.jpg" alt="g1-5" class="thumb"/>
-      <img src="assets/gallery/group1/img6.jpg" data-full="assets/gallery/group1/img6.jpg" alt="g1-6" class="thumb"/>
-      <img src="assets/gallery/group2/img1.jpg" data-full="assets/gallery/group2/img1.jpg" alt="g2-1" class="thumb"/>
-      <img src="assets/gallery/group2/img2.jpg" data-full="assets/gallery/group2/img2.jpg" alt="g2-2" class="thumb"/>
-      <img src="assets/gallery/group2/img3.jpg" data-full="assets/gallery/group2/img3.jpg" alt="g2-3" class="thumb"/>
-      <img src="assets/gallery/group2/img4.jpg" data-full="assets/gallery/group2/img4.jpg" alt="g2-4" class="thumb"/>
-      <img src="assets/gallery/group2/img5.jpg" data-full="assets/gallery/group2/img5.jpg" alt="g2-5" class="thumb"/>
-      <img src="assets/gallery/group2/img6.jpg" data-full="assets/gallery/group2/img6.jpg" alt="g2-6" class="thumb"/>
-      <img src="assets/gallery/group3/img1.jpg" data-full="assets/gallery/group3/img1.jpg" alt="g3-1" class="thumb"/>
-      <img src="assets/gallery/group3/img2.jpg" data-full="assets/gallery/group3/img2.jpg" alt="g3-2" class="thumb"/>
-      <img src="assets/gallery/group3/img3.jpg" data-full="assets/gallery/group3/img3.jpg" alt="g3-3" class="thumb"/>
-      <img src="assets/gallery/group3/img4.jpg" data-full="assets/gallery/group3/img4.jpg" alt="g3-4" class="thumb"/>
-      <img src="assets/gallery/group3/img5.jpg" data-full="assets/gallery/group3/img5.jpg" alt="g3-5" class="thumb"/>
-      <img src="assets/gallery/group3/img6.jpg" data-full="assets/gallery/group3/img6.jpg" alt="g3-6" class="thumb"/>
+<section class="band-white" id="partners">
+  <div class="container">
+    <h3 class="section-title">Partners internacionales</h3>
+    <p class="lead">Alianzas estratégicas con empresas líderes.</p>
+    <div class="partner-logos"><img alt="Fuchs" src="assets/logos/partners/fuchs.png"><img alt="2G Ingeniería y Servicios" src="assets/logos/partners/2g.png"><img alt="Aqana" src="assets/logos/partners/aqana.png"><img alt="DAGA" src="assets/logos/partners/daga.png"><img alt="AirClean" src="assets/logos/partners/airclean.png"></div>
   </div>
-</div>
+</section>
+
+<section class="band-blue" id="galeria">
+  <div class="container">
+    <h3 class="section-title">Galería</h3>
+    <div class="card" style="background:#0a1f8f14;border:none;padding:20px">
+      <div class="gallery-main-wrap">
+        <img id="gallery-main" src="assets/gallery/group1/img1.jpg" alt="Galería" class="gallery-main"/>
+      </div>
+      <div class="filmstrip" tabindex="0" aria-label="Miniaturas de galería (scroll horizontal)">
+        <img src="assets/gallery/group1/img1.jpg" data-full="assets/gallery/group1/img1.jpg" alt="g1-1" class="thumb"/>
+        <img src="assets/gallery/group1/img2.jpg" data-full="assets/gallery/group1/img2.jpg" alt="g1-2" class="thumb"/>
+        <img src="assets/gallery/group1/img3.jpg" data-full="assets/gallery/group1/img3.jpg" alt="g1-3" class="thumb"/>
+        <img src="assets/gallery/group1/img4.jpg" data-full="assets/gallery/group1/img4.jpg" alt="g1-4" class="thumb"/>
+        <img src="assets/gallery/group1/img5.jpg" data-full="assets/gallery/group1/img5.jpg" alt="g1-5" class="thumb"/>
+        <img src="assets/gallery/group1/img6.jpg" data-full="assets/gallery/group1/img6.jpg" alt="g1-6" class="thumb"/>
+        <img src="assets/gallery/group2/img1.jpg" data-full="assets/gallery/group2/img1.jpg" alt="g2-1" class="thumb"/>
+        <img src="assets/gallery/group2/img2.jpg" data-full="assets/gallery/group2/img2.jpg" alt="g2-2" class="thumb"/>
+        <img src="assets/gallery/group2/img3.jpg" data-full="assets/gallery/group2/img3.jpg" alt="g2-3" class="thumb"/>
+        <img src="assets/gallery/group2/img4.jpg" data-full="assets/gallery/group2/img4.jpg" alt="g2-4" class="thumb"/>
+        <img src="assets/gallery/group2/img5.jpg" data-full="assets/gallery/group2/img5.jpg" alt="g2-5" class="thumb"/>
+        <img src="assets/gallery/group2/img6.jpg" data-full="assets/gallery/group2/img6.jpg" alt="g2-6" class="thumb"/>
+        <img src="assets/gallery/group3/img1.jpg" data-full="assets/gallery/group3/img1.jpg" alt="g3-1" class="thumb"/>
+        <img src="assets/gallery/group3/img2.jpg" data-full="assets/gallery/group3/img2.jpg" alt="g3-2" class="thumb"/>
+        <img src="assets/gallery/group3/img3.jpg" data-full="assets/gallery/group3/img3.jpg" alt="g3-3" class="thumb"/>
+        <img src="assets/gallery/group3/img4.jpg" data-full="assets/gallery/group3/img4.jpg" alt="g3-4" class="thumb"/>
+        <img src="assets/gallery/group3/img5.jpg" data-full="assets/gallery/group3/img5.jpg" alt="g3-5" class="thumb"/>
+        <img src="assets/gallery/group3/img6.jpg" data-full="assets/gallery/group3/img6.jpg" alt="g3-6" class="thumb"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band-white" id="contacto">
+  <div class="container">
+    <h3 class="section-title">Contacto</h3>
+    <p class="lead">Contanos sobre tu proyecto: caudal, tipo de efluente, objetivo de calidad, plazos y ubicación.</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <div style="position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden">
+          <iframe title="Mapa oficina ECOWATT" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.%20Hipolito%20Yrigoyen%20986%2C%20CABA&output=embed" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe>
+        </div>
+      </div>
+      <form class="card" onsubmit="event.preventDefault(); alert('Gracias. Te responderemos a la brevedad.');">
+        <label>Nombre y empresa<br><input type="text" required style="width:100%;padding:10px;border:1px solid #d1d5db;border-radius:10px"></label><br><br>
+        <label>Email<br><input type="email" required style="width:100%;padding:10px;border:1px solid #d1d5db;border-radius:10px"></label><br><br>
+        <label>Mensaje<br><textarea rows="6" required style="width:100%;padding:10px;border:1px solid #d1d5db;border-radius:10px"></textarea></label><br><br>
+        <button type="submit" class="btn green">Enviar consulta</button>
+      </form>
+      <div class="card">
+        <h4>Datos de contacto</h4>
+        <div class="excerpt"><p>Dirección: Av. Hipólito Yrigoyen 986, CABA</p></div>
+        <p>Teléfonos: +54 911 6047 0663 | +54 9 387 217 8227</p>
+        <p>Email: <a href="mailto:ingenieria@ecowatt.com.ar">ingenieria@ecowatt.com.ar</a></p>
+        <p>Operamos en Argentina, Uruguay, Paraguay y Bolivia.</p>
+        <p><small>© ECOWATT. Todos los derechos reservados.</small></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background: var(--blue);"><div class="container"><p>ECOWATT - Ingeniería ambiental aplicada</p></div></footer>
+
 <script>
-  // Interacción: click en miniatura => cambia la principal
+  // Toggle "Leer más…"
+  document.addEventListener('click', function(e){
+    if(e.target && e.target.classList.contains('leer-mas')){
+      const card = e.target.closest('.card');
+      const btn = e.target;
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      card.classList.toggle('expanded', !expanded);
+      btn.textContent = expanded ? 'Leer más…' : 'Leer menos';
+    }
+  });
+
+  // Galería: click en miniatura => imagen principal
   document.addEventListener('click', function(e){
     if(e.target && e.target.matches('.filmstrip .thumb')){
       var main = document.getElementById('gallery-main');
@@ -986,70 +316,5 @@ document.addEventListener('click', function(e){
     }
   });
 </script>
-
-</div>
-</section><section class="band-white" id="contacto">
-<div class="container">
-<h3 class="section-title">Contacto</h3>
-<p class="lead">Contanos sobre tu proyecto: caudal, tipo de efluente, objetivo de calidad, plazos y ubicación.</p>
-<div class="grid cols-2">
-<div class="card">
-<div style="position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden">
-<iframe allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.%20Hipolito%20Yrigoyen%20986%2C%20CABA&amp;output=embed" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" title="Mapa oficina ECOWATT"></iframe>
-</div>
-</div>
-<form class="card" onsubmit="event.preventDefault(); alert('Gracias. Te responderemos a la brevedad.');">
-<label>Nombre y empresa<br/><input required="" style="width:100%;padding:10px;border:1px solid #d1d5db;border-radius:10px" type="text"/></label><br/><br/>
-<label>Email<br/><input required="" style="width:100%;padding:10px;border:1px solid #d1d5db;border-radius:10px" type="email"/></label><br/><br/>
-<label>Mensaje<br/><textarea required="" rows="6" style="width:100%;padding:10px;border:1px solid #d1d5db;border-radius:10px"></textarea></label><br/><br/>
-<button class="btn green" type="submit">Enviar consulta</button>
-</form>
-<div class="card">
-<h4>Datos de contacto</h4>
-<div class="excerpt"><p>Dirección: Av. Hipólito Yrigoyen 986, CABA</p></div>
-<p>Teléfonos: +54 911 6047 0663 | +54 9 387 217 8227</p>
-<p>Email: <a href="mailto:ingenieria@ecowatt.com.ar">ingenieria@ecowatt.com.ar</a></p>
-<p>Operamos en Argentina, Uruguay, Paraguay y Bolivia.</p>
-<p><small>© ECOWATT. Todos los derechos reservados.</small></p>
-</div>
-</div>
-</div>
-</section><footer style="background: var(--blue);" style="background: var(--blue);"><div class="container"><p>ECOWATT - Ingeniería ambiental aplicada</p></div></footer><script>
-(function(){
-  function initSlideshows(){
-    document.querySelectorAll('.slideshow').forEach(function(ss){
-      const imgs = ss.querySelectorAll('img');
-      if(!imgs.length) return;
-      let idx = 0;
-      const interval = parseInt(ss.getAttribute('data-interval') || '3000', 10);
-      imgs.forEach(function(im,i){
-        im.style.opacity = (i===0) ? '1' : '0';
-        im.style.transition = 'opacity 600ms ease';
-        im.style.position = 'absolute';
-        im.style.top = '0'; im.style.left = '0';
-        im.style.width = '100%'; im.style.height = '100%';
-        im.style.objectFit = 'cover';
-      });
-      function show(newIdx){
-        imgs[idx].style.opacity = '0';
-        idx = (newIdx+imgs.length) % imgs.length;
-        imgs[idx].style.opacity = '1';
-      }
-      let timer = setInterval(()=>show(idx+1), interval);
-      const next = ss.querySelector('.next');
-      const prev = ss.querySelector('.prev');
-      if(next) next.addEventListener('click', ()=>{ clearInterval(timer); show(idx+1); });
-      if(prev) prev.addEventListener('click', ()=>{ clearInterval(timer); show(idx-1); });
-    });
-  }
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', initSlideshows);
-  } else {
-    initSlideshows();
-  }
-})();
-</script>
 </body>
 </html>
-<!-- BAND: SOLUCIONES Y TECNOLOGÍAS (WHITE) -->
-<!-- BAND: PARTNERS (GREEN) -->

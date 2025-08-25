@@ -2,14 +2,12 @@
 
 <html lang="es">
 <head>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&display=swap" rel="stylesheet">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>ECOWATT — Ingeniería ambiental aplicada</title>
 <meta content="ECOWATT: ingeniería ambiental sólida, robusta y eficiente aplicada al tratamiento de aguas, efluentes y aire. Presencia en Argentina, Uruguay, Paraguay y Bolivia." name="description"/>
-<!-- Montserrat per brand sheet -->
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
+<!-- Montserrat per brand sheet --><style>
     :root{--solutions-gray:#999999; /* TODO: reemplazar por gris exacto de la captura */ 
       --blue:#001489;
       --green:#009A44;
@@ -233,6 +231,32 @@
 .sol-grid .card .card-footer{margin-top:auto;display:flex;justify-content:flex-end;align-items:center}
 /* Evitar variaciones por márgenes en preview */
 .sol-grid .card .excerpt p{margin:0}
+
+
+/* --- v8: Header fixes + hero anti-overlap --- */
+header{display:flex;justify-content:space-between;align-items:center;padding:10px 24px}
+header .brand img{height:32px;width:auto;display:block}
+header .nav{display:flex;align-items:center;gap:24px}
+/* El botón del header no debe heredar el padding grande de botones de secciones */
+header .btn, header .btn-consultar{
+  padding:8px 22px;
+  font-size:16px;
+  line-height:1.1;
+  height:auto;
+}
+/* Evitar que la tarjeta del hero pise la banda siguiente */
+.hero{position:relative;padding-bottom:140px}
+@media (max-width: 900px){
+  .hero{padding-bottom:170px}
+}
+/* Asegurar que la tarjeta permanece a la izquierda */
+.hero .hero-overlay>.container{margin:0;display:flex;justify-content:flex-start;align-items:center;padding:0 20px}
+.hero .hero-inner{margin-left:0;margin-right:auto}
+
+
+/* --- v10: Bricolage Grotesque --- */
+body, p, li { font-family: 'Bricolage Grotesque', sans-serif; font-weight:400; }
+h1, h2, h3, h4, .section-title { font-family: 'Bricolage Grotesque', sans-serif; font-weight:700; }
 
 </style>
 </head>

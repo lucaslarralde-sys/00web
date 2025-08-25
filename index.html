@@ -384,6 +384,147 @@ h2, h3, .subtitle { font-family: 'Bricolage Grotesque', sans-serif; font-weight:
   .hero-card{ margin-bottom: 8px; }
 }
 
+
+/* === v19 — Mobile: Hero sin solapes (auto-height), video centrado, separación segura === */
+@media (max-width:720px){
+  .hero{
+    display:block;           /* evitar centrar si el contenido es alto */
+    height:auto;             /* crecer según contenido */
+    min-height:100svh;       /* al menos pantalla completa, respetando UI móvil */
+    overflow:visible;        /* no recorta la tarjeta */
+    position:relative;
+    padding-block:clamp(16px, 4vh, 28px);
+    margin-bottom:clamp(24px, 5vh, 44px); /* espacio claro con la banda siguiente */
+  }
+  .hero video{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover; object-position:50% 50%;
+    z-index:0;
+  }
+  .hero-card{
+    position:relative; z-index:1;
+    max-width:92%;
+    margin-inline:6%;
+    margin-block:0;
+    padding:16px 18px;
+  }
+}
+
+
+/* === v20 — Anti-solape reforzado en móviles === */
+@media (max-width:720px){
+  .hero{
+    padding-top: clamp(12px, 3vh, 24px);
+    padding-bottom: clamp(56px, 8vh, 80px); /* extra colchón bajo la tarjeta */
+    margin-bottom: clamp(20px, 3vh, 36px);
+  }
+  /* Empuje inicial de la siguiente banda sin tocar su contenido */
+  .hero + section, .hero + div, .hero + *{
+    padding-top: clamp(16px, 4vh, 28px) !important;
+    margin-top: 0 !important;
+  }
+}
+
+
+/* === v21 — Mobile anti-solape final: padding + pseudo-spacer === */
+@media (max-width:720px){
+  .hero{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    height:auto;
+    min-height:100svh;
+    padding-top:6vh;
+    padding-bottom:14vh;   /* más colchón bajo la tarjeta */
+    margin-bottom:6vh;     /* separación clara con la banda siguiente */
+    overflow:visible;
+  }
+  .hero::after{
+    content:"";
+    position:static;       /* parte del flujo para sumar espacio real */
+    display:block;
+    height:10vh;           /* pseudo-espaciador adicional */
+    width:100%;
+  }
+  .hero video{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover; object-position:50% 50%;
+    z-index:0;
+  }
+  .hero-card{ position:relative; z-index:1; margin-bottom:0; }
+  .hero + section, .hero + div, .hero + *{
+    padding-top:4vh !important; margin-top:0 !important;
+  }
+}
+
+
+/* === v22 — Anti-solape global (todas las resoluciones) === */
+.hero{
+  position:relative;
+  overflow:visible;
+  padding-bottom:clamp(48px, 10vh, 120px); /* colchón bajo la tarjeta */
+  margin-bottom:clamp(24px, 6vh, 96px);    /* separación con la banda siguiente */
+}
+.hero::after{
+  content:"";
+  display:block;
+  height:clamp(24px, 6vh, 64px);           /* espaciador adicional */
+  width:100%;
+}
+.hero video{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; object-position:50% 50%;
+  z-index:0;
+}
+.hero-card{ position:relative; z-index:1; }
+
+/* Asegurar que la siguiente banda no use margen negativo y tenga colchón arriba */
+.hero + section, .hero + div, .hero + *{
+  margin-top:0 !important;
+  padding-top:clamp(24px, 5vh, 64px) !important;
+}
+
+/* Ajustes específicos mobile (refuerzo) */
+@media (max-width:720px){
+  .hero{ height:auto; min-height:100svh; padding-top:clamp(16px, 4vh, 32px); }
+  .hero::after{ height:clamp(32px, 8vh, 96px); }
+}
+
+
+/* === v23 — Video centrado y escalado proporcional con aspecto 16:9 === */
+:root{ --hero-aspect-w:16; --hero-aspect-h:9; }
+
+/* Centro del video = centro de la banda */
+.hero video{
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* En pantallas medianas y chicas, el Hero crece proporcionalmente (aspect-ratio) */
+@media (max-width:1024px){
+  .hero{
+    height:auto;
+    aspect-ratio: var(--hero-aspect-w) / var(--hero-aspect-h);
+    min-height: clamp(60vh, calc(100vw * var(--hero-aspect-h) / var(--hero-aspect-w)), 100svh);
+    display:flex;
+    align-items:center;
+  }
+}
+
+/* Refuerzo en móviles: asegura centro y evita solapes */
+@media (max-width:720px){
+  .hero{
+    aspect-ratio: var(--hero-aspect-w) / var(--hero-aspect-h);
+    min-height: max(100svh, calc(100vw * var(--hero-aspect-h) / var(--hero-aspect-w)));
+    padding-block: clamp(16px, 4vh, 32px);
+  }
+  .hero::after{ height: clamp(24px, 6vh, 64px); }
+}
+
 </style>
 </head>
 <body><!-- BAND: QUIENES (BLUE) -->

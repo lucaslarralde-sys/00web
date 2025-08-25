@@ -2,7 +2,7 @@
 
 <html lang="es">
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700&display=swap" rel="stylesheet">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>ECOWATT — Ingeniería ambiental aplicada</title>
@@ -257,6 +257,40 @@ header .btn, header .btn-consultar{
 /* --- v10: Bricolage Grotesque --- */
 body, p, li { font-family: 'Bricolage Grotesque', sans-serif; font-weight:400; }
 h1, h2, h3, h4, .section-title { font-family: 'Bricolage Grotesque', sans-serif; font-weight:700; }
+
+
+/* --- v11: Bricolage Grotesque with Medium --- */
+h2, h3, .subtitle { font-family: 'Bricolage Grotesque', sans-serif; font-weight:500; }
+
+
+/* --- v12: Hero card width adjustment --- */
+.hero .hero-inner{
+  max-width:700px; /* ~25% larger than previous 560px */
+  aspect-ratio:4/3;
+}
+@media (max-width: 900px){
+  .hero .hero-inner{
+    max-width:90%; /* keep it responsive */
+  }
+}
+
+
+/* --- v13: Hero card wider & less tall --- */
+.hero .hero-inner{
+  width:70%;      /* increase width */
+  max-width:720px;
+  height:auto;
+  aspect-ratio:auto; /* cancel fixed aspect ratio to reduce height */
+}
+.hero .hero-inner .card-content{
+  padding:20px 28px; /* adjust inner padding if needed */
+}
+@media (max-width: 900px){
+  .hero .hero-inner{
+    width:90%;
+    max-width:90%;
+  }
+}
 
 </style>
 </head>

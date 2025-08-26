@@ -23,7 +23,7 @@
   a:hover{text-decoration:underline}
   .container{max-width:1180px;margin:0 auto;padding:0 var(--gutter)}
 
-  /* Header */
+  /* ===== Header ===== */
   header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e5e7eb}
   .nav{display:flex;align-items:center;padding:10px 0;gap:16px}
   .brand{display:flex;align-items:center}
@@ -34,26 +34,14 @@
   .btn{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;font-weight:700;border:2px solid var(--blue);background:transparent;color:var(--blue);white-space:nowrap}
   .btn.alt{background:transparent;color:var(--blue)}
 
-  /* Dropdown Descargas */
-  .dropdown{position:relative}
-  .dropdown-toggle{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:2px solid var(--blue);background:transparent;color:var(--blue);font-weight:700;cursor:pointer}
-  .dropdown-menu{position:absolute; right:0; top:calc(100% + 8px); min-width:300px; max-width:min(86vw,420px); background:#fff; border:1px solid #e5e7eb; border-radius:14px; box-shadow:0 12px 32px rgba(16,24,40,.18); padding:10px; display:none}
-  .dropdown-menu.open{display:block}
-  .download-group{padding:8px 10px;border-radius:12px}
-  .download-group h5{margin:6px 0 8px;font-size:13px;letter-spacing:.02em;color:#334155;text-transform:uppercase}
-  .download-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-  .download-list a{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px 12px;border-radius:10px;border:1px solid #e5e7eb;background:#f8fafc;color:#0f172a;font-weight:600}
-  .download-list a:hover{background:#eef2ff;border-color:#c7d2fe;text-decoration:none}
-  .download-list small{font-weight:500;color:#475569}
-
-  /* Bandas */
+  /* ===== Bandas ===== */
   section.band-blue{background:var(--blue);color:#fff;padding:56px 0}
   section.band-green{background:var(--green);color:#fff;padding:56px 0}
   section.band-white{background:#fff;color:var(--text);padding:56px 0}
   h3.section-title{font-size:28px;margin:0 0 10px}
   p.lead{opacity:.9;margin:0 0 22px}
 
-  /* HERO */
+  /* ===== HERO ===== */
   .hero{position:relative;min-height:62vh}
   .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
   .hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start}
@@ -64,49 +52,60 @@
   .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
   section{position:relative;z-index:0}
 
-  /* Grids y tarjetas */
+  /* ===== Grids y tarjetas ===== */
   .grid{display:grid;gap:18px}
   @media(min-width:720px){.grid.cols-2{grid-template-columns:1fr 1fr}}
-  @media(min-width:960px){.grid.cols-4{grid-template-columns:repeat(4,1fr)}}
+  @media(min-width:960px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-4{grid-template-columns:repeat(4,1fr)}}
   .card{background:#fff;border:1px solid #e5e7eb;border-radius:var(--radius);padding:18px;color:var(--text)}
   .card h4{margin:0 0 8px}
   .chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);color:#fff;font-weight:700;font-size:12px}
   .chip img{height:36px;width:auto;display:inline-block}
 
+  /* ===== Step badge ===== */
   .step-badge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-weight:700;margin-bottom:10px;font-size:14px;box-shadow:0 1px 2px rgba(0,0,0,.08)}
 
-  /* Partners */
+  /* ===== Logos partners ===== */
   .partner-logos{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:30px}
-  .partner-logos a{display:inline-flex}
   .partner-logos img{height:auto;width:auto;object-fit:contain;max-height:80px}
   .partner-logos img[alt*="Fuchs"]{max-height:60px}
   .partner-logos img[alt*="Aqana"]{max-height:50px}
   .partner-logos img[alt*="AirClean"]{max-height:50px}
 
-  /* Galería – limitar altura principal a ~378px (~10 cm) y mantener dentro de la caja */
-  .gallery-card{background:#0a1f8f14;border:none;padding:20px}
-  .gallery-main-wrap{width:70%;margin:0 auto;border-radius:12px;overflow:hidden;background:#fff;height:378px;max-height:378px}
-  .gallery-main{width:100%;height:100%;display:block;object-fit:cover} /* usar 'cover' para no deformar y no exceder altura */
+  /* ===== Galería ===== */
+  .gallery-main-wrap{width:70%;margin:0 auto;border-radius:12px;overflow:hidden;background:#fff}
+  .gallery-main{width:100%;height:auto;display:block;object-fit:cover}
   .filmstrip{width:70%;margin:14px auto 0;display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;padding:6px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;background:#fff;border-radius:10px}
   .filmstrip .thumb{flex:0 0 auto;height:76px;width:auto;aspect-ratio:4/3;object-fit:cover;border-radius:8px;cursor:pointer;scroll-snap-align:start;background:#eee;border:2px solid transparent}
   .filmstrip .thumb.active{border-color:#0B3A82}
 
-  /* FIX salto: mostrar continuidad del primer párrafo al expandir */
-  .more-inline{display:none}
-  .card.expanded .more-inline{display:inline}
+  /* ===== Footer ===== */
+  footer{background:var(--blue);color:#fff;padding:24px 0;margin-top:40px}
+  footer a{color:#eaf6ff}
 
-  /* Responsivo */
+  /* ===== Responsivo ===== */
+  @media(max-width:900px){ .nav-right nav ul{gap:18px} }
   @media(max-width:720px){
     .brand img{height:32px}
     .nav{flex-wrap:wrap}
     .nav-right{width:100%;justify-content:flex-end;gap:16px}
     .nav-right nav ul{flex-wrap:wrap;justify-content:flex-end;gap:16px}
-    .dropdown-menu{right:var(--gutter)}
     .hero{min-height:56vh}
     .hero-inner{max-width:640px;padding:18px;border-radius:18px}
-    .gallery-main-wrap{width:100%}
-    .filmstrip{width:100%}
   }
+  @media(max-width:520px){
+    .hero{min-height:52vh}
+    .hero h2{font-size:clamp(22px,5.6vw,28px)}
+    .hero p{font-size:15px}
+    .btn{padding:7px 12px}
+  }
+  @media(max-width:380px){
+    .hero h2{font-size:clamp(20px,6vw,24px)}
+    .hero-inner{padding:14px}
+    .hero-ctas{gap:8px}
+  }
+
+  .band-white .card h4{color:var(--blue)}
+  .band-white .card p strong{color:var(--green)}
 </style>
 </head>
 <body>
@@ -123,47 +122,11 @@
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
-      <div class="dropdown" id="downloadsDropdown">
-        <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">Descargas ▾</button>
-        <div class="dropdown-menu" role="menu">
-          <div class="download-group">
-            <h5>Nuestros productos</h5>
-            <ul class="download-list">
-              <li><a href="assets/docs/Ecowatt_general.pdf" download>Ecowatt_general.pdf <small>(placeholder)</small></a></li>
-            </ul>
-          </div>
-          <div class="download-group">
-            <h5>Fuchs</h5>
-            <ul class="download-list">
-              <li><a href="https://www.fuchswater.com/es/descarga/" target="_blank" rel="noopener">Ir a fuchswater.com/descarga</a></li>
-            </ul>
-          </div>
-          <div class="download-group">
-            <h5>2G</h5>
-            <ul class="download-list">
-              <li><a href="assets/docs/2G_catalogo.pdf" download>2G_catalogo.pdf <small>(placeholder)</small></a></li>
-            </ul>
-          </div>
-          <div class="download-group">
-            <h5>DAGA</h5>
-            <ul class="download-list">
-              <li><a href="https://dagaequipment.com/es/c/productos-23" target="_blank" rel="noopener">Productos DAGA</a></li>
-            </ul>
-          </div>
-          <div class="download-group">
-            <h5>Airclean</h5>
-            <ul class="download-list">
-              <li><a href="https://aircleansrl.com/wp-content/uploads/2024/03/AirClean_Brochure_Espanol.pdf" target="_blank" rel="noopener">Brochure en español (PDF)</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
       <a href="#contacto" class="btn">Consultar</a>
     </div>
   </div>
 </header>
 
-<!-- Orden de bandas conservado -->
 <section id="inicio" class="hero">
   <video autoplay loop muted playsinline poster="assets/img/hero/hero-ecowatt.jpg">
     <source src="assets/videos/hero.mp4" type="video/mp4"/>
@@ -224,36 +187,30 @@
     <h3 class="section-title">Soluciones y tecnologías</h3>
     <p class="lead">Seleccioná un área para explorar tecnologías y casos de implementación.</p>
     <div class="grid cols-4">
-      <div class="card">
-        <span class="chip"><img src="assets/icons/gota-blue (2).svg" alt=""> Aguas</span>
-        <h4>Aguas</h4>
-        <div class="excerpt">
-          <p>
-            Potabilización y acondicionamiento de agua para uso urbano e industrial. Implementamos sistemas de tratamiento convencional
-            cribado, coagulación, floculación, sedimentación y filtración
-            <span class="more-inline"> y procesos avanzados mediante membranas, intercambio iónico (incluida la electrodeionización) y otras tecnologías complementarias, según la calidad de fuente y los objetivos del cliente.</span>
-          </p>
-        </div>
-        <div class="more-content" style="display:none;margin-top:10px">
-          <p>Además, proveemos los equipos y unidades de proceso, con ingeniería, montaje y soporte local.</p>
-          <p>Diseñamos y ejecutamos sistemas de potabilización ajustados a calidad de fuente y norma objetivo.<br>
-          Procesos aplicados (según caso): pretratamientos y cribado (finos/medios), coagulación–floculación, sedimentación de alta tasa con módulos lamelares de perfil chevron, DAF, filtración (lecho granular, disco, tambor, microtamiz) y membranas (MF/UF/RO), con desinfección final. Para calidades objetivo más exigentes incorporamos intercambio iónico/electrodeionización y procesos avanzados.</p>
-          <h4>Suministro de equipos y unidades</h4>
-          <div class="excerpt"><p>Integramos y proveemos: sistemas de cribado y manejo de residuos; floculadores y clarificadores (incl. módulos/paquetes lamelares de perfil chevron); rasquetas/puentes de lodos; unidades de filtración por disco y por tambor; filtros de arena (convencionales y de operación continua) y microfiltros; además de instrumentación y automatización asociada. Opcional paquetes modulares “plug &amp; play” cuando corresponde.</p></div>
-          <h4>Valor agregado</h4>
-          <ul>
-            <li>Innovación y eficiencia técnica: selección entre líneas convencionales y avanzadas para lograr la calidad objetivo con alta confiabilidad operativa.</li>
-            <li>Flexibilidad: soluciones compactas y paquetes preensamblados ideales para ampliaciones o nuevas plantas.</li>
-            <li>Soporte integral: ingeniería de proceso, suministro, montaje, puesta en marcha, capacitación y O&amp;M asistido.</li>
-          </ul>
-        </div>
-        <div class="btn-wrap"><button class="btn alt leer-mas" type="button" aria-expanded="false">Leer más…</button></div>
-      </div>
+      <div class="card"><span class="chip"><img src="assets/icons/gota-blue (2).svg" alt=""> Aguas</span><h4>Aguas</h4><div class="excerpt"><p>Potabilización y acondicionamiento de agua para uso urbano e industrial. Implementamos sistemas de tratamiento convencional cribado, coagulación, floculación, sedimentación y filtración<span class="more-inline"> y procesos avanzados mediante membranas, intercambio iónico (incluida la electrodeionización) y otras tecnologías complementarias, según la calidad de fuente y los objetivos del cliente.</span></p></div><div class="more-content" style="display:none;margin-top:10px"><p>y procesos avanzados mediante membranas, intercambio iónico (incluida la electrodeionización) y otras tecnologías complementarias, según la calidad de fuente y los objetivos del cliente. Además, proveemos los equipos y unidades de proceso, con ingeniería, montaje y soporte local.</p><p>Diseñamos y ejecutamos sistemas de potabilización ajustados a calidad de fuente y norma objetivo.<br>    Procesos aplicados (según caso): pretratamientos y cribado (finos/medios), coagulación–floculación, sedimentación de alta tasa con módulos lamelares de perfil chevron, DAF, filtración (lecho granular, disco, tambor, microtamiz) y membranas (MF/UF/RO), con desinfección final. Para calidades objetivo más exigentes incorporamos intercambio iónico/electrodeionización y procesos avanzados.</p><h4>Suministro de equipos y unidades</h4><div class="excerpt"><p>Integramos y proveemos: sistemas de cribado y manejo de residuos; floculadores y clarificadores (incl. módulos/paquetes lamelares de perfil chevron); rasquetas/puentes de lodos; unidades de filtración por disco y por tambor; filtros de arena (convencionales y de operación continua) y microfiltros; además de instrumentación y automatización asociada. Opcional paquetes modulares “plug &amp; play” cuando corresponde.</p></div><h4>Valor agregado</h4><ul>
+<li>Innovación y eficiencia técnica: selección entre líneas convencionales y avanzadas para lograr la calidad objetivo con alta confiabilidad operativa.</li>
+<li>Flexibilidad: soluciones compactas y paquetes preensamblados ideales para ampliaciones o nuevas plantas.</li>
+<li>Soporte integral: ingeniería de proceso, suministro, montaje, puesta en marcha, capacitación y O&amp;M asistido.</li>
+</ul></div><div class="btn-wrap"><button class="btn alt leer-mas" type="button" aria-expanded="false">Leer más…</button></div></div>
 
-      <!-- Otras tarjetas se mantienen idénticas -->
-      <div class="card"><span class="chip"><img src="assets/icons/cloaca-blue (2).svg" alt=""> Efluentes urbanos e industriales</span><h4>Efluentes urbanos e industriales</h4><div class="excerpt"><p>Soluciones integrales para efluentes municipales/domésticos e industriales, combinando trenes de pretratamiento, procesos biológicos (aeróbicos y anaeróbicos), polimento con filtración biológica, tratamientos terciarios y opciones de reúso del agua tratada.</p></div></div>
-      <div class="card"><span class="chip"><img src="assets/icons/aire-blue (2).svg" alt=""> Aire y gases</span><h4>Aire y gases</h4><div class="excerpt"><p>Depuración de aire y control de emisiones/olores para aplicaciones urbanas e industriales, incluyendo soluciones biológicas y fisicoquímicas, además de limpieza de biogás (abatimiento de H₂S y siloxanos).</p></div></div>
-      <div class="card"><span class="chip"><img src="assets/icons/agitador-blue (2).svg" alt=""> Equipamiento</span><h4>Equipamiento</h4><div class="excerpt"><p>Provisión de equipos, repuestos e insumos para pretratamiento, clarificación/decantación, procesos biológicos (aireación y mezcla) y control de emisiones, con ingeniería y soporte local.</p></div></div>
+      <div class="card"><span class="chip"><img src="assets/icons/cloaca-blue (2).svg" alt=""> Efluentes urbanos e industriales</span><h4>Efluentes urbanos e industriales</h4><div class="excerpt"><p>Soluciones integrales para efluentes municipales/domésticos e industriales, combinando trenes de pretratamiento, procesos biológicos (aeróbicos y anaeróbicos), polimento con filtración biológica, tratamientos terciarios y opciones de reúso del agua tratada.</p></div><div class="more-content" style="display:none;margin-top:10px"><p>Cuando corresponde, integramos aprovechamiento energético mediante biogás y esquemas de minimización de descarga (incl. ZLD), asegurando cumplimiento normativo y eficiencia operativa.</p><h4>Efluentes urbanos</h4><div class="excerpt"><p>Soluciones para municipios, desarrollos urbanísticos y corrientes domésticas en industrias.</p></div><p>Procesos aplicados: barros activados, MBR, MBBR, lechos percoladores, IFAS, UASB, lagunas anaeróbicas, terciarios y desinfección.</p><p>Reúso y polimento biológico: incorporación de filtración biológica de pulido (p. ej., BAC/biocarbón, percolación de polimento) y etapas de membranas cuando se requiere calidad para riego, servicios, recirculación u otros usos permitidos.</p><p>Integración de servicios y equipos: pretratamiento robusto (rejas/tamises, desarenado/desengrasado), aireación y mezcla de bajo mantenimiento, monitoreo y soporte técnico.</p><p>Enfoque: cumplimiento normativo, eficiencia operativa y reducción de CAPEX/OPEX.</p><h4><img src="assets/icons/fabrica-blue (2).svg" alt="Ícono fábrica – Efluentes industriales" style="height:36px;width:auto;display:inline-block"> Efluentes industriales y generación de biogás</h4><div class="excerpt"><p>Tratamiento físico–químico y biológico para adecuación de vuelcos en múltiples rubros (alimentos y bebidas, agroindustria, químico/farmacéutico, petróleo y gas, entre otros).</p></div><h4>Tecnologías clave</h4><ul>
+<li>Anaeróbicas de alta tasa para conversión de carga orgánica en biogás.</li>
+<li>Etapas aeróbicas (MBBR, barros activados, IFAS) para remoción de DBO/DQO y nitrificación–desnitrificación.</li>
+<li>Polimento y reúso: filtración biológica de pulido, carbón activado/biocarbón, terciarios avanzados y membranas (UF/RO) orientados a reúso o ZLD, según objetivo del cliente.</li>
+</ul><p>Servicios profesionales: ingeniería de proceso, pilotos y pruebas de tratabilidad, laboratorio, auditorías de performance, operación y mantenimiento asistido.</p></div><div class="btn-wrap"><button class="btn alt leer-mas" type="button" aria-expanded="false">Leer más…</button></div></div>
+
+      <div class="card"><span class="chip"><img src="assets/icons/aire-blue (2).svg" alt=""> Aire y gases</span><h4>Aire y gases</h4><div class="excerpt"><p>Depuración de aire y control de emisiones/olores para aplicaciones urbanas e industriales, incluyendo soluciones biológicas y fisicoquímicas, además de limpieza de biogás (abatimiento de H₂S y siloxanos).</p></div><div class="more-content" style="display:none;margin-top:10px"><ul>
+<li>Tecnologías: biofiltración y biotrickling, lavadores (scrubbers), adsorción con carbón activado, captación/abatimiento de polvos, ventilación industrial e insonorización.</li>
+<li>Servicios: ingeniería, consultoría, diseño, fabricación e instalación llave en mano; integración de pretratamiento de biogás para maximizar la eficiencia de valorización energética.</li>
+</ul></div><div class="btn-wrap"><button class="btn alt leer-mas" type="button" aria-expanded="false">Leer más…</button></div></div>
+
+      <div class="card"><span class="chip"><img src="assets/icons/agitador-blue (2).svg" alt=""> Equipamiento</span><h4>Equipamiento</h4><div class="excerpt"><p>Provisión de equipos, repuestos e insumos para pretratamiento, clarificación/decantación, procesos biológicos (aireación y mezcla) y control de emisiones, con ingeniería y soporte local.</p></div><div class="more-content" style="display:none;margin-top:10px"><ul>
+<li>Pretratamiento y separación sólido–líquido: rejas/tamises, tambores, desarenadores/desengrasadores, transporte y compactación.</li>
+<li>Clarificación/Decantación: módulos lamelares (seditubos) de perfil chevron y componentes para decantadores/clarificadores.</li>
+<li>Procesos biológicos (reactores y lagunas): aireación y mezcla de alta eficiencia y bajo mantenimiento (selección según matriz y carga).</li>
+<li>Aire y gases: biofiltros, biotrickling, scrubbers, adsorción con carbón activado, ventilación e insonorización.</li>
+<li>Servicios asociados: ingeniería, suministro, instalación, pilotos, laboratorio, auditorías y asistencia tecnológica; operación y mantenimiento según necesidad. Nota: los detalles de filtración biológica de agua y reúso se desarrollan en la sección Efluentes.</li>
+</ul></div><div class="btn-wrap"><button class="btn alt leer-mas" type="button" aria-expanded="false">Leer más…</button></div></div>
     </div>
   </div>
 </section>
@@ -262,20 +219,14 @@
   <div class="container">
     <h3 class="section-title">Partners internacionales</h3>
     <p class="lead">Alianzas estratégicas con empresas líderes.</p>
-    <div class="partner-logos">
-      <a href="https://www.fuchswater.com" target="_blank" rel="noopener"><img alt="Fuchs" src="assets/logos/partners/fuchs.png"></a>
-      <a href="https://www.2gservicos.com" target="_blank" rel="noopener"><img alt="2G Ingeniería y Servicios" src="assets/logos/partners/2g.png"></a>
-      <a href="https://aqana.com" target="_blank" rel="noopener"><img alt="Aqana" src="assets/logos/partners/aqana.png"></a>
-      <a href="https://dagaequipment.com" target="_blank" rel="noopener"><img alt="DAGA" src="assets/logos/partners/daga.png"></a>
-      <a href="https://aircleansrl.com" target="_blank" rel="noopener"><img alt="AirClean" src="assets/logos/partners/airclean.png"></a>
-    </div>
+    <div class="partner-logos"><img alt="Fuchs" src="assets/logos/partners/fuchs.png"><img alt="2G Ingeniería y Servicios" src="assets/logos/partners/2g.png"><img alt="Aqana" src="assets/logos/partners/aqana.png"><img alt="DAGA" src="assets/logos/partners/daga.png"><img alt="AirClean" src="assets/logos/partners/airclean.png"></div>
   </div>
 </section>
 
 <section class="band-blue" id="galeria">
   <div class="container">
     <h3 class="section-title">Galería</h3>
-    <div class="card gallery-card">
+    <div class="card" style="background:#0a1f8f14;border:none;padding:20px">
       <div class="gallery-main-wrap">
         <img id="gallery-main" src="assets/gallery/group1/img1.jpg" alt="Galería" class="gallery-main"/>
       </div>
@@ -286,6 +237,18 @@
         <img src="assets/gallery/group1/img4.jpg" data-full="assets/gallery/group1/img4.jpg" alt="g1-4" class="thumb"/>
         <img src="assets/gallery/group1/img5.jpg" data-full="assets/gallery/group1/img5.jpg" alt="g1-5" class="thumb"/>
         <img src="assets/gallery/group1/img6.jpg" data-full="assets/gallery/group1/img6.jpg" alt="g1-6" class="thumb"/>
+        <img src="assets/gallery/group2/img1.jpg" data-full="assets/gallery/group2/img1.jpg" alt="g2-1" class="thumb"/>
+        <img src="assets/gallery/group2/img2.jpg" data-full="assets/gallery/group2/img2.jpg" alt="g2-2" class="thumb"/>
+        <img src="assets/gallery/group2/img3.jpg" data-full="assets/gallery/group2/img3.jpg" alt="g2-3" class="thumb"/>
+        <img src="assets/gallery/group2/img4.jpg" data-full="assets/gallery/group2/img4.jpg" alt="g2-4" class="thumb"/>
+        <img src="assets/gallery/group2/img5.jpg" data-full="assets/gallery/group2/img5.jpg" alt="g2-5" class="thumb"/>
+        <img src="assets/gallery/group2/img6.jpg" data-full="assets/gallery/group2/img6.jpg" alt="g2-6" class="thumb"/>
+        <img src="assets/gallery/group3/img1.jpg" data-full="assets/gallery/group3/img1.jpg" alt="g3-1" class="thumb"/>
+        <img src="assets/gallery/group3/img2.jpg" data-full="assets/gallery/group3/img2.jpg" alt="g3-2" class="thumb"/>
+        <img src="assets/gallery/group3/img3.jpg" data-full="assets/gallery/group3/img3.jpg" alt="g3-3" class="thumb"/>
+        <img src="assets/gallery/group3/img4.jpg" data-full="assets/gallery/group3/img4.jpg" alt="g3-4" class="thumb"/>
+        <img src="assets/gallery/group3/img5.jpg" data-full="assets/gallery/group3/img5.jpg" alt="g3-5" class="thumb"/>
+        <img src="assets/gallery/group3/img6.jpg" data-full="assets/gallery/group3/img6.jpg" alt="g3-6" class="thumb"/>
       </div>
     </div>
   </div>
@@ -335,26 +298,7 @@
     btn.textContent = expanded ? 'Leer más…' : 'Leer menos';
   });
 
-  // Dropdown Descargas
-  (function(){
-    const dd = document.getElementById('downloadsDropdown');
-    if(!dd) return;
-    const toggle = dd.querySelector('.dropdown-toggle');
-    const menu = dd.querySelector('.dropdown-menu');
-    function close(){ menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
-    toggle.addEventListener('click', function(){
-      const open = menu.classList.contains('open');
-      if(open){ close(); } else { menu.classList.add('open'); toggle.setAttribute('aria-expanded','true'); }
-    });
-    document.addEventListener('click', function(e){
-      if(!dd.contains(e.target)) close();
-    });
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape') close();
-    });
-  })();
-
-  // Galería: click en miniatura => imagen principal (sin cambiar tamaño de caja)
+  // Galería: click en miniatura => imagen principal
   document.addEventListener('click', function(e){
     if(e.target && e.target.matches('.filmstrip .thumb')){
       var main = document.getElementById('gallery-main');
